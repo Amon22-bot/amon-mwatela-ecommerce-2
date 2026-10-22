@@ -4,7 +4,7 @@
    AM ELECTRONICS AND ACCESSORIES
    HOMEPAGE JAVASCRIPT
    File: index.js
-========================================================= */
+ ========================================================= */
 
 "use strict";
 
@@ -169,7 +169,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
         });
 
-
         heroDots.forEach(function (dot, dotIndex) {
 
             const isActive =
@@ -315,6 +314,45 @@ document.addEventListener("DOMContentLoaded", function () {
        4. REUSABLE CAROUSEL CONTROLS
     ===================================================== */
 
+    function ensureCarouselButton(track, side) {
+
+        const container = track && track.parentElement;
+
+        if (!container) return null;
+
+        const selector = side === "prev"
+            ? ".carousel-prev"
+            : ".carousel-next";
+
+        const existingButton = container.querySelector(selector);
+
+        if (existingButton) {
+            return existingButton;
+        }
+
+        const button = document.createElement("button");
+
+        button.type = "button";
+        button.className = "carousel-arrow " + selector.slice(1);
+        button.setAttribute(
+            "aria-label",
+            side === "prev"
+                ? "Scroll to previous products"
+                : "Scroll to next products"
+        );
+        button.innerHTML = side === "prev" ? "❮" : "❯";
+
+        if (side === "prev") {
+            container.insertBefore(button, track);
+        } else {
+            container.appendChild(button);
+        }
+
+        return button;
+
+    }
+
+
     function setupCarousel(
         track,
         previousButton,
@@ -324,6 +362,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
         if (!track) return;
 
+        const prevControl = previousButton ||
+            ensureCarouselButton(track, "prev");
+
+        const nextControl = nextButton ||
+            ensureCarouselButton(track, "next");
+
+        if (!prevControl && !nextControl) return;
 
         function getScrollStep() {
 
@@ -370,28 +415,28 @@ document.addEventListener("DOMContentLoaded", function () {
             const currentScroll = track.scrollLeft;
 
 
-            if (previousButton) {
+            if (prevControl) {
 
-                previousButton.disabled =
+                prevControl.disabled =
                     currentScroll <= 3;
 
-                previousButton.setAttribute(
+                prevControl.setAttribute(
                     "aria-disabled",
-                    previousButton.disabled ? "true" : "false"
+                    prevControl.disabled ? "true" : "false"
                 );
 
             }
 
 
-            if (nextButton) {
+            if (nextControl) {
 
-                nextButton.disabled =
+                nextControl.disabled =
                     maximumScroll <= 3 ||
                     currentScroll >= maximumScroll - 3;
 
-                nextButton.setAttribute(
+                nextControl.setAttribute(
                     "aria-disabled",
-                    nextButton.disabled ? "true" : "false"
+                    nextControl.disabled ? "true" : "false"
                 );
 
             }
@@ -399,9 +444,9 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
 
-        if (previousButton) {
+        if (prevControl) {
 
-            previousButton.addEventListener(
+            prevControl.addEventListener(
                 "click",
                 function () {
 
@@ -419,9 +464,9 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
 
-        if (nextButton) {
+        if (nextControl) {
 
-            nextButton.addEventListener(
+            nextControl.addEventListener(
                 "click",
                 function () {
 
@@ -827,7 +872,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     /* =====================================================
-       15. FAQ ACCORDION
+        15. FAQ ACCORDION
     ===================================================== */
 
     document.querySelectorAll(".faq-item").forEach(
@@ -860,7 +905,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     /* =====================================================
-       16. CURRENT YEAR
+        16. CURRENT YEAR
     ===================================================== */
 
     const currentYear = document.getElementById(
@@ -876,7 +921,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     /* =====================================================
-       17. INITIALISE
+        17. INITIALISE
     ===================================================== */
 
     console.log(
