@@ -165,7 +165,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         if (!container) return null;
 
-        const selector = side === "prev" ? ".carousel-prev" : ".carousel-next";
+        const selector = side === "prev" ? ".carousel-prev, .top-selling-prev, .new-arrivals-prev" : ".carousel-next, .top-selling-next, .new-arrivals-next";
         const existingButton = container.querySelector(selector);
 
         if (existingButton) {
@@ -176,7 +176,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const button = document.createElement("button");
 
         button.type = "button";
-        button.className = "carousel-arrow " + selector.slice(1);
+        button.className = "carousel-arrow " + (side === "prev" ? "carousel-prev" : "carousel-next");
         button.setAttribute(
             "aria-label",
             side === "prev" ? "Scroll to previous products" : "Scroll to next products"
@@ -196,6 +196,16 @@ document.addEventListener("DOMContentLoaded", function () {
         if (!track) return;
 
         const safeAmount = Number.isFinite(amount) ? amount : 0;
+        const currentLeft = Number.isFinite(track.scrollLeft) ? track.scrollLeft : 0;
+        const nextLeft = currentLeft + safeAmount;
+
+        if (typeof track.scrollTo === "function") {
+            track.scrollTo({
+                left: nextLeft,
+                behavior: "smooth"
+            });
+            return;
+        }
 
         if (typeof track.scrollBy === "function") {
             track.scrollBy({
@@ -205,16 +215,22 @@ document.addEventListener("DOMContentLoaded", function () {
             return;
         }
 
-        track.scrollLeft += safeAmount;
+        track.scrollLeft = nextLeft;
     }
 
     function setupCarousel(track, previousButton, nextButton, step) {
         if (!track) return;
 
+        if (track.dataset.carouselReady === "true") {
+            return;
+        }
+
         const prevControl = previousButton || ensureCarouselButton(track, "prev");
         const nextControl = nextButton || ensureCarouselButton(track, "next");
 
         if (!prevControl && !nextControl) return;
+
+        track.dataset.carouselReady = "true";
 
         function getScrollStep() {
             if (step) return Number(step);
@@ -222,30 +238,30 @@ document.addEventListener("DOMContentLoaded", function () {
             const firstCard = track.firstElementChild;
 
             if (!firstCard) {
-                return Math.max(220, track.clientWidth * 0.8);
+                return Math.max(220, track.clientWidth * 0.8 || 220);
             }
 
             const cardStyle = window.getComputedStyle(firstCard);
-            const cardWidth = firstCard.getBoundingClientRect().width;
+            const cardWidth = firstCard.getBoundingClientRect().width || firstCard.offsetWidth || track.clientWidth * 0.7;
             const marginLeft = parseFloat(cardStyle.marginLeft) || 0;
             const marginRight = parseFloat(cardStyle.marginRight) || 0;
             const trackStyle = window.getComputedStyle(track);
             const gap = parseFloat(trackStyle.columnGap) || parseFloat(trackStyle.gap) || 0;
 
-            return cardWidth + marginLeft + marginRight + gap;
+            return Math.max(220, cardWidth + marginLeft + marginRight + gap);
         }
 
         function updateButtons() {
-            const maximumScroll = Math.max(0, track.scrollWidth - track.clientWidth - 1);
+            const maxScroll = Math.max(0, track.scrollWidth - track.clientWidth - 2);
             const currentScroll = track.scrollLeft;
 
             if (prevControl) {
-                prevControl.disabled = currentScroll <= 1;
+                prevControl.disabled = currentScroll <= 2;
                 prevControl.setAttribute("aria-disabled", prevControl.disabled ? "true" : "false");
             }
 
             if (nextControl) {
-                nextControl.disabled = maximumScroll <= 1 || currentScroll >= maximumScroll - 1;
+                nextControl.disabled = currentScroll >= maxScroll - 2 || maxScroll <= 2;
                 nextControl.setAttribute("aria-disabled", nextControl.disabled ? "true" : "false");
             }
         }
