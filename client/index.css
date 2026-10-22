@@ -175,7 +175,7 @@ button {
 /* Search focus effect */
 
 .navbar-search:focus-within {
-    border-color: 1px solid #f47721;
+    border-color: 1px solid white;
 
     box-shadow: none;
 }
@@ -255,8 +255,8 @@ button {
 .navbar-search button:hover {
     background: linear-gradient(
         135deg,
-        #f47721,
-        #d96110
+        #000000,
+        #121214
     );
 
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.18);
