@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Shopping Cart | AM Electronics</title>
+
+    <!-- Main website CSS -->
+    <link rel="stylesheet" href="Index.css">
+
+    <!-- Cart-specific CSS -->
+    <link rel="stylesheet" href="Cart.css">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- =====================================================
+         CART PAGE
+         ===================================================== -->
+
+    <main class="cart-page">
+
+        <!-- Page heading -->
+        <div class="cart-page-header">
+
+            <h1>
+                <i class="fa-solid fa-cart-shopping"></i>
+                Shopping Cart
+            </h1>
+
+            <p>
+                Review the products you have added to your cart.
+            </p>
+
+        </div>
+
+
+        <!-- Cart area -->
+        <div class="cart-container">
+
+
+            <!-- =================================================
+                 CART ITEMS
+                 ================================================= -->
+
+            <section class="cart-items-section">
+
+                <div class="cart-items-header">
+
+                    <h2>
+                        Your Products
+                    </h2>
+
+                    <button
+                        type="button"
+                        id="clearCartButton"
+                        class="clear-cart-button"
+                    >
+                        <i class="fa-solid fa-trash"></i>
+                        Clear Cart
+                    </button>
+
+                </div>
+
+
+                <!-- JavaScript will insert cart products here -->
+
+                <div
+                    id="cartItems"
+                    class="cart-items"
+                >
+
+                    <!-- Empty cart message -->
+                    <div
+                        id="emptyCartMessage"
+                        class="empty-cart-message"
+                    >
+
+                        <i class="fa-solid fa-cart-shopping"></i>
+
+                        <h3>
+                            Your cart is empty
+                        </h3>
+
+                        <p>
+                            You have not added any products yet.
+                        </p>
+
+                        <a
+                            href="shop.html"
+                            class="continue-shopping-button"
+                        >
+                            Continue Shopping
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 CART SUMMARY
+                 ================================================= -->
+
+            <aside class="cart-summary">
+
+                <h2>
+                    Cart Summary
+                </h2>
+
+
+                <div class="summary-row">
+
+                    <span>
+                        Subtotal
+                    </span>
+
+                    <strong id="cartSubtotal">
+                        KSh 0
+                    </strong>
+
+                </div>
+
+
+                <div class="summary-row">
+
+                    <span>
+                        Delivery
+                    </span>
+
+                    <strong id="cartDelivery">
+                        To be confirmed
+                    </strong>
+
+                </div>
+
+
+                <div class="summary-divider"></div>
+
+
+                <div class="summary-total">
+                    <span>
+                        Total
+                    </span>
+
+                    <strong id="cartTotal">
+                        KSh 0
+                    </strong>
+                </div>
+
+                <div class="cart-actions">
+
+                <a href="Checkout.html" class="checkout-btn">Checkout</a>
+                <br>
+                <a href="Shop.html" class="Continue-link">Continue Shopping</a>
+
+                </div>
+
+            </aside>
+
+        </div>
+
+    </main>
+
+
+    <!-- =====================================================
+         FOOTER
+         ===================================================== -->
+
+    <footer class="site-footer">
+
+        <p>
+            &copy; 2026 AM Electronics and Accessories. All Rights Reserved.
+        </p>
+
+    </footer>
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+         ===================================================== -->
+
+    <script src="Cart.js"></script>
+
+</body>
+</html>
+

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop - AM Electronics and Accessories</title>
+    <link rel="stylesheet" href="shop.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css">
+</head>
+<body>
+    <main class="shop-page">
+
+        <section class="shop-intro">
+            <div class="shop-intro-content">
+                <span class="shop-label">AM ELECTRONICS & ACCESSORIES</span>
+                <h1>Shop Our <span>Products</span></h1>
+                <p>Use the search bar or category buttons below to quickly find the products you are looking for.</p>
+            </div>
+        </section>
+
+        <!-- =================================================
+             SEARCH AND FILTER CONTROLS
+        ================================================== -->
+        <section class="shop-controls">
+            <div class="shop-search">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="search" id="shopProductSearch" placeholder="Search products..." aria-label="Search products">
+            </div>
+
+            <div class="shop-filter">
+                <button class="shop-filter-button active" data-category="all">All Products</button>
+                <button class="shop-filter-button" data-category="covers">Phone Covers</button>
+                <button class="shop-filter-button" data-category="smartwatches">Smartwatches</button>
+                <button class="shop-filter-button" data-category="chargers-cables">Chargers & Cables</button>
+                <button class="shop-filter-button" data-category="headphones-earpods">Headphones & Earpods</button>
+                <button class="shop-filter-button" data-category="screen-protectors">Screen Protectors</button>
+                <button class="shop-filter-button" data-category="top-selling">Top Selling</button>
+                <button class="shop-filter-button" data-category="you-may-like">You May Also Like</button>
+                <button class="shop-filter-button" data-category="new-arrivals">New Arrivals</button>
+            </div>
+        </section>
+
+        <!-- =================================================
+             PRODUCTS GRID WORKSPACE
+        ================================================== -->
+        <section class="shop-products">
+            <div class="shop-products-heading">
+                <h2>All Products</h2>
+                <p>Browse our available electronics and accessories.</p>
+            </div>
+
+            <div class="shop-product-grid" id="shopProductGrid">
+                <p style="text-align:center; grid-column: 1/-1; padding: 20px; color: #777;">Connecting to inventory server...</p>
+            </div>
+        </section>
+    </main>
+
+<footer class="site-footer">
+    <p>&copy; 2026 AM Electronics and Accessories. All Rights Reserved.</p>
+</footer>
+    <script src="api-config.js"></script>
+    <script src="loadProducts.js"></script>
+</body>
+</html>
+

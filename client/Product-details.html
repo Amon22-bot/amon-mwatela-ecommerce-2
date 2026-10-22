@@ -1,0 +1,230 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Product Details | AM Electronics</title>
+
+    <link rel="stylesheet" href="Product-details.css">
+
+    <!-- Font Awesome icons -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    >
+</head>
+
+<body>
+
+<div class="container">
+
+    <main class="product-details">
+
+        <!-- PRODUCT IMAGE GALLERY -->
+        <section class="product-gallery">
+
+            <div class="main-img-container">
+
+                <img
+                    id="mainProductImg"
+                    src="images.html/PS 5.jpg"
+                    alt="Selected product"
+                >
+
+            </div>
+
+            <div class="thumbnail-row" id="thumbnailRow">
+
+                <img
+                    class="thumb active"
+                    src="images.html/PS 5.jpg"
+                    alt="Product image 1"
+                    data-full-image="images.html/PS 5.jpg"
+                >
+
+            </div>
+
+        </section>
+
+
+        <!-- PRODUCT INFORMATION -->
+        <section class="product-info">
+
+            <div>
+<h1 class="product-title">
+                    Loading product...
+                </h1>
+
+            </div>
+
+
+            <!-- AVAILABILITY -->
+            <div class="rating-stock">
+                <span class="stock-status">Checking availability...</span>
+            </div>
+
+            <!-- PRICES: same stacked order as homepage cards -->
+            <div class="price-box">
+                <span class="old-price" hidden></span>
+                <span class="detail-discount-badge discount-badge" hidden></span>
+                <span class="current-price">Loading price...</span>
+            </div>
+
+
+            <!-- PRODUCT DESCRIPTION -->
+            <p class="product-description">
+                Loading product description...
+            </p>
+
+
+            <!-- COLOUR OPTIONS -->
+            <div class="options-group">
+
+                <span class="options-label">
+                    Select Colour
+                </span>
+
+                <div class="color-swatches product-colors">
+
+                    <!-- JavaScript generates available colours here. -->
+
+                </div>
+
+            </div>
+
+
+            <!-- QUANTITY AND ADD TO CART -->
+            <div class="purchase-controls">
+
+                <div class="quantity-selector">
+
+                    <button
+                        type="button"
+                        class="qty-btn"
+                        id="decreaseQty"
+                        aria-label="Decrease quantity"
+                    >
+                        -
+                    </button>
+
+                    <input
+                        type="number"
+                        class="qty-input"
+                        id="quantity"
+                        value="1"
+                        min="1"
+                        max="10"
+                        step="1"
+                    >
+
+                    <button
+                        type="button"
+                        class="qty-btn"
+                        id="increaseQty"
+                        aria-label="Increase quantity"
+                    >
+                        +
+                    </button>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    class="btn-add-cart"
+                    disabled
+                >
+                    Loading Product...
+                </button>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- PRODUCT SPECIFICATIONS -->
+    <section class="product-specs">
+
+        <h2 class="specs-title">
+            Product Information
+        </h2>
+
+        <table class="specs-table">
+
+            <tr>
+                <td class="spec-label">Product Name</td>
+                <td class="spec-value" id="specProductName">
+                    Loading...
+                </td>
+            </tr>
+
+            <tr>
+                <td class="spec-label">Category</td>
+                <td class="spec-value" id="specProductCategory">
+                    Loading...
+                </td>
+            </tr>
+
+            <tr>
+                <td class="spec-label">Availability</td>
+                <td class="spec-value" id="specProductStock">
+                    Loading...
+                </td>
+            </tr>
+
+        </table>
+
+        <div class="product-extra-info" id="productExtraInfo" hidden>
+            <p class="details-verified-badge" id="detailsVerifiedBadge" hidden>✓ Product information checked by seller</p>
+            <div id="productBrandModel"></div>
+            <section id="featuresSection" hidden><h3>Key features</h3><ul id="productFeatures"></ul></section>
+            <section id="specificationsSection" hidden><h3>Specifications</h3><table class="specs-table"><tbody id="productSpecifications"></tbody></table></section>
+            <section id="colorsSection" hidden><h3>Available colours</h3><p id="productColors"></p></section>
+            <section id="warrantySection" hidden><h3>Warranty and after-sales</h3><p id="productWarranty"></p></section>
+        </div>
+
+    </section>
+
+</div>
+
+
+<footer class="site-footer">
+    <p>&copy; 2026 AM Electronics and Accessories. All Rights Reserved.</p>
+</footer>
+<!-- JAVASCRIPT FILES: KEEP THIS ORDER -->
+<script src="api-config.js"></script>
+<script src="Product-details.js"></script>
+<script src="Cart.js"></script>
+
+
+<!-- QUANTITY BUTTONS -->
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    const decreaseButton = document.getElementById("decreaseQty");
+    const increaseButton = document.getElementById("increaseQty");
+
+    if (decreaseButton) {
+        decreaseButton.addEventListener("click", function () {
+            window.updateQty(-1);
+        });
+    }
+
+    if (increaseButton) {
+        increaseButton.addEventListener("click", function () {
+            window.updateQty(1);
+        });
+    }
+
+});
+</script>
+
+</body>
+</html>
+
+

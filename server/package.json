@@ -1,0 +1,13 @@
+{
+  "scripts": {
+    "start": "node Server.js",
+    "migrate:demo-products": "node scripts/copy-demo-products.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.6",
+    "dotenv": "^18.0.7",
+    "express": "^5.3.0",
+    "mongoose": "^9.11.2",
+    "socket.io": "^4.8.4"
+  }
+}

@@ -1,0 +1,447 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Checkout | AM Electronics and Accessories</title>
+
+    <meta name="description"
+          content="Complete your order at AM Electronics and Accessories.">
+
+    <!-- Checkout CSS -->
+    <link rel="stylesheet" href="checkout.css">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- CHECKOUT HEADER -->
+    <header class="checkout-header">
+
+        <a href="index.html" class="checkout-logo">
+            <i class="fa-solid fa-bolt"></i>
+
+            <span>
+                AM Electronics
+                <small>and Accessories</small>
+            </span>
+        </a>
+
+        <a href="cart.html" class="back-to-cart">
+            <i class="fa-solid fa-arrow-left"></i>
+            Back to Cart
+        </a>
+
+    </header>
+
+
+    <!-- CHECKOUT MAIN CONTENT -->
+    <main class="checkout-page">
+
+        <div class="checkout-heading">
+
+            <span class="section-label">ALMOST THERE!</span>
+
+            <h1>Complete Your Order</h1>
+
+            <p>
+                Provide your details and submit your order directly to our store.
+            </p>
+
+        </div>
+
+
+        <!-- CHECKOUT LAYOUT -->
+        <div class="checkout-layout">
+
+
+            <!-- LEFT: CUSTOMER INFORMATION -->
+            <section class="checkout-form-section">
+
+                <form id="checkoutForm">
+
+                    <!-- CUSTOMER DETAILS -->
+                    <div class="checkout-card">
+
+                        <div class="card-heading">
+
+                            <span class="step-number">01</span>
+
+                            <div>
+                                <h2>Customer Information</h2>
+
+                                <p>
+                                    Tell us how to contact you.
+                                </p>
+                            </div>
+
+                        </div>
+
+
+                        <div class="form-grid">
+
+                            <div class="form-group full-width">
+
+                                <label for="customerName">
+                                    Full Name <span>*</span>
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="customerName"
+                                    name="customerName"
+                                    placeholder="Enter your full name"
+                                    autocomplete="name"
+                                    required
+                                >
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label for="customerPhone">
+                                    Phone Number <span>*</span>
+                                </label>
+
+                                <input
+                                    type="tel"
+                                    id="customerPhone"
+                                    name="customerPhone"
+                                    placeholder="07XXXXXXXX"
+                                    autocomplete="tel"
+                                    required
+                                >
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label for="customerEmail">
+                                    Email Address
+                                </label>
+
+                                <input
+                                    type="email"
+                                    id="customerEmail"
+                                    name="customerEmail"
+                                    placeholder="you@example.com"
+                                    autocomplete="email"
+                                >
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- DELIVERY DETAILS -->
+                    <div class="checkout-card">
+
+                        <div class="card-heading">
+
+                            <span class="step-number">02</span>
+
+                            <div>
+                                <h2>Delivery Information</h2>
+
+                                <p>
+                                    Tell us where you would like your order delivered.
+                                </p>
+                            </div>
+
+                        </div>
+
+
+                        <div class="form-grid">
+
+                            <div class="form-group">
+
+                                <label for="county">
+                                    County <span>*</span>
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="county"
+                                    name="county"
+                                    placeholder="e.g. Nairobi"
+                                    autocomplete="address-level1"
+                                    required
+                                >
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label for="town">
+                                    Town / City <span>*</span>
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="town"
+                                    name="town"
+                                    placeholder="Enter your town"
+                                    autocomplete="address-level2"
+                                    required
+                                >
+
+                            </div>
+
+
+                            <div class="form-group full-width">
+
+                                <label for="estate">
+                                    Estate / Neighbourhood <span>*</span>
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="estate"
+                                    name="estate"
+                                    placeholder="e.g. Roysambu"
+                                    required
+                                >
+
+                            </div>
+
+
+                            <div class="form-group full-width">
+
+                                <label for="deliveryAddress">
+                                    Delivery Address or Landmark <span>*</span>
+                                </label>
+
+                                <textarea
+                                    id="deliveryAddress"
+                                    name="deliveryAddress"
+                                    rows="3"
+                                    placeholder="Enter your building, street, or nearby landmark"
+                                    required
+                                ></textarea>
+
+                            </div>
+
+
+                            <div class="form-group full-width">
+
+                                <label for="deliveryInstructions">
+                                    Additional Instructions
+                                    <small>(Optional)</small>
+                                </label>
+
+                                <textarea
+                                    id="deliveryInstructions"
+                                    name="deliveryInstructions"
+                                    rows="3"
+                                    placeholder="Any special delivery instructions?"
+                                ></textarea>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- CUSTOMER CONSENT -->
+                    <div class="checkout-consent">
+
+                        <input
+                            type="checkbox"
+                            id="confirmOrder"
+                            name="confirmOrder"
+                            required
+                        >
+
+                        <label for="confirmOrder">
+                            I have reviewed my customer details, delivery
+                            information, and order summary.
+                        </label>
+
+                    </div>
+
+
+                    <div
+                        class="checkout-error"
+                        id="checkoutError"
+                        role="alert"
+                        aria-live="polite"
+                    ></div>
+
+
+                    <!-- PLACE ORDER BUTTON -->
+                    <button
+                        type="submit"
+                        class="place-order-button"
+                        id="placeOrderButton"
+                    >
+
+                        <i class="fa-solid fa-paper-plane"></i>
+
+                        <span>Submit Order</span>
+
+                        <i class="fa-solid fa-arrow-right"></i>
+
+                    </button>
+
+
+                    <p class="checkout-footer-note">
+                        <i class="fa-solid fa-shield-halved"></i>
+
+                        Review your order before sending it to AM Electronics.
+                    </p>
+
+                </form>
+
+            </section>
+
+
+
+            <!-- RIGHT: ORDER SUMMARY -->
+            <aside class="order-summary-section">
+
+                <div class="order-summary-card">
+
+                    <div class="summary-heading">
+
+                        <div>
+                            <span class="section-label">YOUR PURCHASE</span>
+
+                            <h2>Order Summary</h2>
+                        </div>
+
+                        <i class="fa-solid fa-bag-shopping"></i>
+
+                    </div>
+
+
+                    <div
+                        class="checkout-products"
+                        id="checkoutProducts"
+                        aria-live="polite"
+                    >
+
+                        <p class="loading-cart">
+                            Loading your cart...
+                        </p>
+
+                    </div>
+
+
+                    <div class="empty-cart-message" id="emptyCartMessage" hidden>
+
+                        <i class="fa-solid fa-cart-shopping"></i>
+
+                        <h3>Your cart is empty</h3>
+
+                        <p>
+                            Add some products before proceeding to checkout.
+                        </p>
+
+                        <a href="shop.html" class="continue-shopping">
+                            Continue Shopping
+                        </a>
+
+                    </div>
+
+
+                    <div class="summary-divider"></div>
+
+
+                    <div class="summary-row">
+
+                        <span>Products Subtotal</span>
+
+                        <strong id="checkoutSubtotal">KSh 0</strong>
+
+                    </div>
+
+
+                    <div class="summary-row">
+
+                        <span>Delivery Fee</span>
+
+                        <strong class="delivery-pending">
+                            To be confirmed
+                        </strong>
+
+                    </div>
+
+
+                    <div class="summary-divider"></div>
+
+
+                    <div class="summary-total">
+
+                        <span>Order Total</span>
+
+                        <strong id="checkoutTotal">KSh 0</strong>
+
+                    </div>
+
+
+                    <p class="delivery-disclaimer">
+                        The displayed total covers your products only.
+                        Delivery charges will be confirmed before dispatch.
+                    </p>
+
+
+                    <div class="order-submission-note">
+
+                        <i class="fa-solid fa-circle-check"></i>
+
+                        <p>
+                            Your order and delivery details will be saved in our
+                            order system for processing.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <a href="shop.html" class="continue-shopping-link">
+
+                    <i class="fa-solid fa-arrow-left"></i>
+
+                    Continue Shopping
+
+                </a>
+
+            </aside>
+
+        </div>
+
+    </main>
+
+
+
+    <!-- PAGE FOOTER -->
+    <footer class="checkout-page-footer">
+
+        <p>
+            &copy; <span id="currentYear"></span>
+            AM Electronics and Accessories.
+            All Rights Reserved.
+        </p>
+
+    </footer>
+
+
+    <!-- Checkout JavaScript -->
+    <script src="api-config.js"></script>
+    <script src="Checkout.js"></script>
+
+</body>
+</html>
+

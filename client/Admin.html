@@ -1,0 +1,1316 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+<title>Admin Portal | AM Electronics and Accessories</title>
+
+<meta
+    name="description"
+    content="Manage AM Electronics and Accessories products, prices, discounts, categories and homepage placements."
+>
+
+<style>
+    :root {
+        --primary-blue: #0077cc;
+        --dark-blue: #005fa3;
+        --deep-blue: #003f70;
+        --soft-blue: #eaf5fc;
+        --white: #ffffff;
+        --background: #F5F9FC;
+        --text: #202b38;
+        --muted: #68778a;
+        --border: #dce5ee;
+        --green: #16834a;
+        --red: #d93025;
+        --orange: #f59e0b;
+        --shadow: 0 10px 35px rgba(20, 60, 100, 0.08);
+    }
+
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        margin: 0;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background: var(--background);
+        color: var(--text);
+        line-height: 1.6;
+    }
+
+    button,
+    input,
+    select,
+    textarea {
+        font: inherit;
+    }
+
+    button {
+        cursor: pointer;
+    }
+
+    .admin-header {
+        background: linear-gradient(
+            120deg,
+            var(--deep-blue),
+            var(--primary-blue)
+        );
+        color: var(--white);
+        padding: 22px 5%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+        flex-wrap: wrap;
+        box-shadow: 0 4px 18px rgba(0, 80, 150, 0.18);
+    }
+
+    .brand h1 {
+        margin: 0;
+        font-size: 25px;
+        font-weight: 800;
+    }
+
+    .brand p {
+        margin: 4px 0 0;
+        font-size: 13px;
+        opacity: 0.88;
+    }
+
+    .header-status {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 13px;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        border-radius: 30px;
+        font-size: 13px;
+    }
+
+    .status-dot {
+        width: 8px;
+        height: 8px;
+        background: #6ee7a0;
+        border-radius: 50%;
+    }
+
+    .page-container {
+        width: min(1150px, 94%);
+        margin: 32px auto;
+    }
+
+    .welcome-section {
+        margin-bottom: 25px;
+    }
+
+    .welcome-section h2 {
+        margin: 0 0 7px;
+        font-size: clamp(23px, 3vw, 32px);
+        color: var(--deep-blue);
+    }
+
+    .welcome-section p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 15px;
+    }
+
+    .notice {
+        padding: 15px 18px;
+        margin-bottom: 22px;
+        border-radius: 10px;
+        background: #fff8e7;
+        border: 1px solid #f3d68a;
+        color: #795400;
+        font-size: 14px;
+    }
+
+    .notice strong {
+        color: #634500;
+    }
+
+    .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 18px;
+        margin-bottom: 26px;
+    }
+
+    .stat-card {
+        background: var(--white);
+        padding: 20px;
+        border: 1px solid var(--border);
+        border-radius: 13px;
+        box-shadow: var(--shadow);
+    }
+
+    .stat-card span {
+        display: block;
+        color: var(--muted);
+        font-size: 13px;
+        margin-bottom: 7px;
+    }
+
+    .stat-card strong {
+        font-size: 27px;
+        color: var(--primary-blue);
+    }
+
+    .panel {
+        background: var(--white);
+        border: 1px solid var(--border);
+        border-radius: 15px;
+        box-shadow: var(--shadow);
+        margin-bottom: 26px;
+        overflow: hidden;
+    }
+
+    .panel-heading {
+        padding: 22px 25px;
+        border-bottom: 1px solid var(--border);
+        background: linear-gradient(
+            120deg,
+            #ffffff,
+            #f5faff
+        );
+    }
+
+    .panel-heading h3 {
+        margin: 0;
+        font-size: 20px;
+        color: var(--deep-blue);
+    }
+
+    .panel-heading p {
+        margin: 5px 0 0;
+        color: var(--muted);
+        font-size: 13px;
+    }
+
+    .panel-body {
+        padding: 25px;
+    }
+
+    .form-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 21px;
+    }
+
+    .form-group {
+        min-width: 0;
+    }
+
+    .form-group.full-width {
+        grid-column: 1 / -1;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: 700;
+        font-size: 13px;
+        color: #34445a;
+    }
+
+    .required {
+        color: var(--red);
+    }
+
+    input[type="text"],
+    input[type="number"],
+    input[type="url"],
+    select,
+    textarea {
+        width: 100%;
+        padding: 12px 13px;
+        border: 1px solid #cbd6e2;
+        border-radius: 8px;
+        background: #fff;
+        color: var(--text);
+        outline: none;
+        transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+        border-color: var(--primary-blue);
+        box-shadow: 0 0 0 3px rgba(0, 119, 204, 0.12);
+    }
+
+    input::placeholder,
+    textarea::placeholder {
+        color: #9aa7b6;
+    }
+
+    textarea {
+        min-height: 120px;
+        resize: vertical;
+    }
+
+    .help-text {
+        display: block;
+        margin-top: 6px;
+        font-size: 12px;
+        color: var(--muted);
+    }
+
+    .price-preview {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        flex-wrap: wrap;
+        margin-top: 12px;
+        padding: 13px;
+        background: var(--soft-blue);
+        border: 1px solid #c9e4f7;
+        border-radius: 9px;
+    }
+
+    .preview-old-price {
+        color: #7b8795;
+        text-decoration: line-through;
+        font-size: 13px;
+    }
+
+    .preview-current-price {
+        color: var(--deep-blue);
+        font-size: 17px;
+        font-weight: 800;
+    }
+
+    .discount-badge {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 48px;
+        padding: 5px 9px;
+        border-radius: 5px;
+        background: var(--red);
+        color: white;
+        font-size: 12px;
+        font-weight: 800;
+    }
+
+    .discount-help {
+        color: var(--muted);
+        font-size: 12px;
+        margin-top: 7px;
+    }
+
+    .checkbox-card {
+        display: flex;
+        align-items: flex-start;
+        gap: 11px;
+        padding: 15px;
+        border: 1px solid var(--border);
+        border-radius: 9px;
+        background: #fbfdff;
+    }
+
+    .checkbox-card input {
+        margin-top: 4px;
+        width: 17px;
+        height: 17px;
+        accent-color: var(--primary-blue);
+        flex-shrink: 0;
+    }
+
+    .checkbox-card label {
+        margin: 0;
+        cursor: pointer;
+    }
+
+    .checkbox-card small {
+        display: block;
+        margin-top: 4px;
+        color: var(--muted);
+        font-size: 12px;
+        font-weight: 400;
+    }
+
+    .homepage-limit-info {
+        margin-top: 13px;
+        padding: 13px 15px;
+        background: #eef8ff;
+        border: 1px solid #cfe8fb;
+        border-radius: 8px;
+        color: #245a80;
+        font-size: 13px;
+    }
+
+    .homepage-limit-info strong {
+        color: var(--deep-blue);
+    }
+
+    .form-actions {
+        display: flex;
+        gap: 12px;
+        margin-top: 27px;
+        flex-wrap: wrap;
+    }
+
+    .btn {
+        border: none;
+        border-radius: 8px;
+        padding: 12px 20px;
+        font-weight: 700;
+        transition: background 0.2s, transform 0.2s;
+    }
+
+    .btn:hover {
+        transform: translateY(-1px);
+    }
+
+    .btn-primary {
+        background: var(--primary-blue);
+        color: white;
+        flex: 1;
+    }
+
+    .btn-primary:hover {
+        background: var(--dark-blue);
+    }
+
+    .btn-secondary {
+        background: #e8edf3;
+        color: #34445a;
+    }
+
+    .btn-secondary:hover {
+        background: #dbe4ed;
+    }
+
+    .btn:disabled {
+        opacity: 0.65;
+        cursor: not-allowed;
+        transform: none;
+    }
+
+    .status-message {
+        display: none;
+        margin-top: 18px;
+        padding: 13px 15px;
+        border-radius: 8px;
+        font-size: 14px;
+        overflow-wrap: anywhere;
+    }
+
+    .status-message.success {
+        display: block;
+        color: #17643a;
+        background: #e7f7ed;
+        border: 1px solid #b8e4c8;
+    }
+
+    .status-message.error {
+        display: block;
+        color: #8b2020;
+        background: #fff0f0;
+        border: 1px solid #f1c3c3;
+    }
+
+    .status-message.info {
+        display: block;
+        color: #174c80;
+        background: #eaf5ff;
+        border: 1px solid #c9e4fb;
+    }
+
+    .footer {
+        width: 100%;
+        padding: 20px;
+        text-align: center;
+        background: #111111;
+        color: #ffffff;
+        font-size: 13px;
+    }
+
+    @media (max-width: 700px) {
+        .admin-header {
+            padding: 18px 5%;
+        }
+
+        .brand h1 {
+            font-size: 21px;
+        }
+
+        .stats-grid {
+            grid-template-columns: 1fr;
+            gap: 12px;
+        }
+
+        .stat-card {
+            padding: 16px;
+        }
+
+        .stat-card strong {
+            font-size: 23px;
+        }
+
+        .form-grid {
+            grid-template-columns: 1fr;
+            gap: 17px;
+        }
+
+        .form-group.full-width {
+            grid-column: auto;
+        }
+
+        .panel-heading,
+        .panel-body {
+            padding: 19px;
+        }
+
+        .form-actions {
+            flex-direction: column;
+        }
+
+        .btn-primary {
+            width: 100%;
+        }
+    }
+
+    .upload-section-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: start; }
+    .verification-field label { display: flex; align-items: center; gap: 9px; }
+    .verification-field input[type="checkbox"] { width: auto; }
+    .details-entry-heading { display: grid; gap: 5px; margin-top: 8px; }
+    .upload-panel { margin-bottom: 26px; }
+    @media (max-width: 900px) { .upload-section-grid { grid-template-columns: 1fr; } }
+    #adminApp[hidden], #adminLogin[hidden] { display: none !important; }
+    .admin-login-shell { width: min(520px, 92%); margin: 55px auto; }
+    .admin-login-form { display: grid; gap: 15px; }
+    .admin-login-form input { width: 100%; padding: 12px 13px; border: 1px solid #cbd6e2; border-radius: 8px; }
+    .orders-toolbar { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+    .orders-toolbar-actions { display: flex; gap: 9px; flex-wrap: wrap; }
+    .orders-list { display: grid; gap: 16px; }
+    .orders-empty { padding: 28px; color: var(--muted); text-align: center; background: #f8fbfd; border: 1px dashed var(--border); border-radius: 10px; }
+    .order-card { border: 1px solid var(--border); border-radius: 12px; overflow: hidden; background: #fff; }
+    .order-card-heading { display: flex; justify-content: space-between; align-items: flex-start; gap: 14px; flex-wrap: wrap; padding: 17px 19px; background: #f5faff; border-bottom: 1px solid var(--border); }
+    .order-card-heading h4 { margin: 0; color: var(--deep-blue); font-size: 16px; }
+    .order-card-heading p { margin: 4px 0 0; color: var(--muted); font-size: 12px; }
+    .order-status-control { width: 175px; padding: 8px 10px; border: 1px solid #cbd6e2; border-radius: 7px; background: #fff; }
+    .order-card-body { padding: 18px; }
+    .order-details-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin-bottom: 18px; }
+    .order-detail-block { min-width: 0; padding: 13px; border: 1px solid #e8edf2; border-radius: 9px; background: #fcfdfe; }
+    .order-detail-block h5 { margin: 0 0 8px; color: #536273; font-size: 12px; text-transform: uppercase; letter-spacing: .04em; }
+    .order-detail-block p { margin: 3px 0; overflow-wrap: anywhere; font-size: 13px; }
+    .order-items { display: grid; gap: 10px; }
+    .order-item { display: grid; grid-template-columns: 96px minmax(0, 1fr) auto; align-items: center; gap: 15px; padding: 12px; border: 1px solid #e8edf2; border-radius: 9px; }
+    .order-item img, .order-item-image-placeholder { width: 96px; height: 96px; object-fit: contain; border-radius: 8px; background: #f4f7fa; }
+    .order-item-image-placeholder { display: grid; place-items: center; padding: 8px; color: var(--muted); text-align: center; font-size: 11px; }
+    .order-item h5 { margin: 0 0 4px; font-size: 14px; color: var(--text); }
+    .order-item p { margin: 2px 0; color: var(--muted); font-size: 12px; }
+    .order-item-total { font-weight: 800; color: var(--deep-blue); white-space: nowrap; }
+    .order-total-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-top: 16px; padding-top: 13px; border-top: 1px solid var(--border); font-size: 15px; }
+    .products-toolbar { display: flex; align-items: end; justify-content: space-between; gap: 14px; flex-wrap: wrap; }
+    .products-filters { display: flex; gap: 10px; flex-wrap: wrap; }
+    .products-filters select { min-width: 190px; padding: 9px 11px; }
+    .admin-products-list { display: grid; gap: 12px; }
+    .admin-product-card { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 15px; border: 1px solid var(--border); border-radius: 10px; background: #fff; }
+    .admin-product-info { min-width: 0; }
+    .admin-product-info h4 { margin: 0 0 4px; color: var(--deep-blue); font-size: 15px; overflow-wrap: anywhere; }
+    .admin-product-info p { margin: 2px 0; color: var(--muted); font-size: 12px; }
+    .btn-danger { background: #fff0f0; color: #a12622; border: 1px solid #efc4c2; flex-shrink: 0; }
+    .btn-danger:hover { background: #ffe1df; }
+    @media (max-width: 700px) { .admin-product-card { align-items: flex-start; flex-direction: column; } .btn-danger { width: 100%; } }
+    .order-total-row strong { color: var(--primary-blue); }
+    .order-flags { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+    .order-flag { display: inline-flex; align-items: center; gap: 7px; color: var(--text); font-size: 13px; font-weight: 600; cursor: pointer; }
+    .order-flag input { width: 17px; height: 17px; accent-color: var(--primary-blue); cursor: pointer; }
+    .order-flag input:disabled { cursor: wait; }
+    @media (max-width: 600px) { .order-details-grid { grid-template-columns: 1fr; } .order-item { grid-template-columns: 72px minmax(0,1fr); } .order-item img, .order-item-image-placeholder { width: 72px; height: 72px; } .order-item-total { grid-column: 2; } }
+</style>
+
+
+
+</head>
+
+<body>
+
+<header class="admin-header">
+    <div class="brand">
+        <h1>AM Electronics and Accessories</h1>
+        <p>Product Inventory Management</p>
+    </div>
+
+
+<div class="header-status">
+    <span class="status-dot"></span>
+    <span id="adminHeaderStatus">Sign in required</span>
+</div>
+
+
+</header>
+
+<section id="adminLogin" class="admin-login-shell panel" aria-labelledby="adminLoginTitle">
+    <div class="panel-heading">
+        <h3 id="adminLoginTitle">Admin sign in</h3>
+        <p>Sign in to review customer orders and manage your products.</p>
+    </div>
+    <div class="panel-body">
+        <form id="adminLoginForm" class="admin-login-form">
+            <div class="form-group">
+                <label for="adminPassword">Admin password</label>
+                <input id="adminPassword" name="password" type="password" autocomplete="current-password" required>
+            </div>
+            <button id="adminLoginButton" type="submit" class="btn btn-primary">Sign in</button>
+            <div id="adminLoginStatus" class="status-message" role="alert" aria-live="polite"></div>
+        </form>
+    </div>
+</section>
+
+<main id="adminApp" class="page-container" hidden>
+
+
+<section class="welcome-section">
+    <h2>Product Management</h2>
+    <p>
+        Upload products, manage prices and control where your products
+        appear across your online store.
+    </p>
+</section>
+
+<section class="panel" id="ordersPanel" aria-labelledby="ordersHeading">
+    <div class="panel-heading orders-toolbar">
+        <div>
+            <h3 id="ordersHeading">Customer Orders</h3>
+            <p>Review submitted orders, product pictures, delivery details, and update order status.</p>
+        </div>
+        <div class="orders-toolbar-actions">
+            <button id="refreshOrdersButton" type="button" class="btn btn-secondary">Refresh orders</button>
+            <button id="adminSignOutButton" type="button" class="btn btn-secondary">Sign out</button>
+        </div>
+    </div>
+    <div class="panel-body">
+        <div id="ordersList" class="orders-list" aria-live="polite">
+            <div class="orders-empty">Loading orders...</div>
+        </div>
+    </div>
+</section>
+
+<section class="panel" id="productsPanel" aria-labelledby="productsHeading">
+    <div class="panel-heading products-toolbar">
+        <div>
+            <h3 id="productsHeading">Manage Products</h3>
+            <p>Find products by destination or homepage section, then remove a listing when needed.</p>
+        </div>
+        <div class="products-filters">
+            <select id="productScopeFilter" aria-label="Filter products by destination">
+                <option value="all">All products</option>
+                <option value="homepage">Homepage</option>
+                <option value="shop">Shop</option>
+            </select>
+            <select id="productCategoryFilter" aria-label="Filter by homepage section">
+                <option value="all">All homepage sections</option>
+                <option value="top-selling">Top selling products</option>
+                <option value="covers">Phone covers</option>
+                <option value="new-arrivals">New arrivals</option>
+                <option value="screen-protectors">Screen protectors</option>
+                <option value="headphones-earpods">Headphones and earpods</option>
+                <option value="smartwatches">Smartwatches</option>
+                <option value="chargers-cables">Chargers and cables</option>
+                <option value="you-may-like">You may also like</option>
+            </select>
+            <button id="refreshProductsButton" type="button" class="btn btn-secondary">Refresh products</button>
+        </div>
+    </div>
+    <div class="panel-body">
+        <div id="adminProductsList" class="admin-products-list" aria-live="polite">
+            <div class="orders-empty">Loading products...</div>
+        </div>
+        <div id="productsStatus" class="status-message" role="status" aria-live="polite"></div>
+    </div>
+</section>
+
+<div class="notice">
+    <strong>Homepage rule:</strong>
+    Each homepage section can contain a maximum of 10 products.
+    The Shop page has no fixed product limit. A homepage limit must
+    be validated by your backend before a product is saved.
+</div>
+
+<section class="stats-grid" aria-label="Product management rules">
+
+    <div class="stat-card">
+        <span>Homepage product limit</span>
+        <strong>10 per section</strong>
+    </div>
+
+    <div class="stat-card">
+        <span>Shop inventory limit</span>
+        <strong>Unlimited*</strong>
+    </div>
+
+    <div class="stat-card">
+        <span>Discount badge format</span>
+        <strong>20%</strong>
+    </div>
+
+</section>
+
+<div class="upload-section-grid">
+    <section class="panel upload-panel">
+        <div class="panel-heading">
+            <h3>Homepage uploads</h3>
+            <p>Choose a homepage section. Each section accepts up to 10 products.</p>
+        </div>
+        <div class="panel-body">
+            <form class="productUploadForm" data-target="homepage">
+                <div class="form-grid">
+                    <div class="form-group full-width">
+                        <label>Homepage section <span class="required">*</span></label>
+                        <select name="category" required>
+                            <option value="top-selling">Top selling products</option>
+                            <option value="covers">Phone covers</option>
+                            <option value="new-arrivals">New arrivals</option>
+                            <option value="screen-protectors">Screen protectors</option>
+                            <option value="headphones-earpods">Headphones and earpods</option>
+                            <option value="smartwatches">Smartwatches</option>
+                            <option value="chargers-cables">Chargers and cables</option>
+                            <option value="you-may-like">You may also like</option>
+                        </select>
+                    </div>
+                    <div class="form-group full-width">
+                        <label>Product name <span class="required">*</span></label>
+                        <input name="title" type="text" maxlength="150" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Original price (KES) <span class="required">*</span></label>
+                        <input name="originalPrice" type="number" min="0" step="0.01" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Selling price (KES) <span class="required">*</span></label>
+                        <input name="price" type="number" min="0" step="0.01" required>
+                    </div>
+                    <div class="form-group full-width">
+                        <label>Product image file</label>
+                        <input name="imageFile" type="file" accept="image/*">
+                        <small class="help-text">Choose an image up to 5 MB, or enter an existing image path below.</small>
+                        <input name="image" type="text" maxlength="500" placeholder="Optional path, e.g. images.html/product.jpg">
+                    </div>
+                    <div class="form-group">
+                        <label>Inventory status</label>
+                        <select name="stockStatus">
+                            <option value="in-stock">In stock</option>
+                            <option value="out-of-stock">Out of stock</option>
+                        </select>
+                    </div>
+                    <div class="form-group full-width">
+                        <label>Product description <span class="required">*</span></label>
+                        <textarea name="description" maxlength="5000" required></textarea>
+                    </div>
+                    <div class="form-group full-width details-entry-heading"><strong>Product details page information</strong><small class="help-text">These fields are optional. Add only information you have checked.</small></div>
+                    <div class="form-group"><label>Brand</label><input name="brand" type="text" maxlength="100" placeholder="e.g. Samsung"></div>
+                    <div class="form-group"><label>Model</label><input name="model" type="text" maxlength="100" placeholder="e.g. Galaxy A15"></div>
+                    <div class="form-group full-width"><label>Key features <small>(one per line, up to 12)</small></label><textarea name="features" maxlength="2000" placeholder="Fast charging&#10;Bluetooth 5.3&#10;Noise cancellation"></textarea></div>
+                    <div class="form-group full-width"><label>Specifications <small>(one item per line, up to 20)</small></label><textarea name="specifications" maxlength="3000" placeholder="20000mAh (74Wh)&#10;USB-C input: 5V/3A, 9V/2.22A&#10;Compatible with QC3.0 and PD3.0"></textarea></div>
+                    <div class="form-group full-width"><label>Available colours <small>(comma-separated)</small></label><input name="colors" type="text" maxlength="500" placeholder="Black, Blue, White"></div>
+                    <div class="form-group full-width"><label>Additional product photos</label><input name="extraImageFiles" type="file" accept="image/*" multiple><small class="help-text">Select up to 5 extra images. Combined main and extra image files must be 5 MB or smaller.</small><label>Or enter additional image paths <small>(one path per line, up to 5)</small></label><textarea name="extraImages" maxlength="3000" placeholder="images.html/product-side.jpg&#10;images.html/product-back.jpg"></textarea><small class="help-text">Use paths relative to the client folder. The main image above is the first gallery image.</small></div>
+                    <div class="form-group full-width"><label>Warranty / after-sales information</label><input name="warranty" type="text" maxlength="300" placeholder="e.g. 6-month seller warranty"></div>
+                    <div class="form-group full-width verification-field"><label><input name="detailsVerified" type="checkbox"> I have checked these product details for accuracy.</label><small class="help-text">This marks the information as checked by you; it does not certify product authenticity.</small></div>
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary">Upload to Homepage</button>
+                    <button type="reset" class="btn btn-secondary">Clear Form</button>
+                </div>
+                <div class="status-message" role="status" aria-live="polite"></div>
+            </form>
+        </div>
+    </section>
+
+    <section class="panel upload-panel">
+        <div class="panel-heading">
+            <h3>Shop uploads</h3>
+            <p>Upload any product to the shop. There are no categories or product limits here.</p>
+        </div>
+        <div class="panel-body">
+            <form class="productUploadForm" data-target="shop">
+                <div class="form-grid">
+                    <div class="form-group full-width">
+                        <label>Product name <span class="required">*</span></label>
+                        <input name="title" type="text" maxlength="150" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Original price (KES) <span class="required">*</span></label>
+                        <input name="originalPrice" type="number" min="0" step="0.01" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Selling price (KES) <span class="required">*</span></label>
+                        <input name="price" type="number" min="0" step="0.01" required>
+                    </div>
+                    <div class="form-group full-width">
+                        <label>Product image file</label>
+                        <input name="imageFile" type="file" accept="image/*">
+                        <small class="help-text">Choose an image up to 5 MB, or enter an existing image path below.</small>
+                        <input name="image" type="text" maxlength="500" placeholder="Optional path, e.g. images.html/product.jpg">
+                    </div>
+                    <div class="form-group">
+                        <label>Inventory status</label>
+                        <select name="stockStatus">
+                            <option value="in-stock">In stock</option>
+                            <option value="out-of-stock">Out of stock</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Shop badge (optional)</label>
+                        <select name="shopBadge">
+                            <option value="none">No badge</option>
+                            <option value="new-arrival">New Arrival</option>
+                            <option value="top-seller">Top Seller</option>
+                        </select>
+                        <small class="help-text">This label does not add the product to a homepage section or count toward its 10-product limit.</small>
+                    </div>
+                    <div class="form-group full-width">
+                        <label>Product description <span class="required">*</span></label>
+                        <textarea name="description" maxlength="5000" required></textarea>
+                    </div>
+                    <div class="form-group full-width details-entry-heading"><strong>Product details page information</strong><small class="help-text">These fields are optional. Add only information you have checked.</small></div>
+                    <div class="form-group"><label>Brand</label><input name="brand" type="text" maxlength="100" placeholder="e.g. Samsung"></div>
+                    <div class="form-group"><label>Model</label><input name="model" type="text" maxlength="100" placeholder="e.g. Galaxy A15"></div>
+                    <div class="form-group full-width"><label>Key features <small>(one per line, up to 12)</small></label><textarea name="features" maxlength="2000" placeholder="Fast charging&#10;Bluetooth 5.3&#10;Noise cancellation"></textarea></div>
+                    <div class="form-group full-width"><label>Specifications <small>(one item per line, up to 20)</small></label><textarea name="specifications" maxlength="3000" placeholder="20000mAh (74Wh)&#10;USB-C input: 5V/3A, 9V/2.22A&#10;Compatible with QC3.0 and PD3.0"></textarea></div>
+                    <div class="form-group full-width"><label>Available colours <small>(comma-separated)</small></label><input name="colors" type="text" maxlength="500" placeholder="Black, Blue, White"></div>
+                    <div class="form-group full-width"><label>Additional product photos</label><input name="extraImageFiles" type="file" accept="image/*" multiple><small class="help-text">Select up to 5 extra images. Combined main and extra image files must be 5 MB or smaller.</small><label>Or enter additional image paths <small>(one path per line, up to 5)</small></label><textarea name="extraImages" maxlength="3000" placeholder="images.html/product-side.jpg&#10;images.html/product-back.jpg"></textarea><small class="help-text">Use paths relative to the client folder. The main image above is the first gallery image.</small></div>
+                    <div class="form-group full-width"><label>Warranty / after-sales information</label><input name="warranty" type="text" maxlength="300" placeholder="e.g. 6-month seller warranty"></div>
+                    <div class="form-group full-width verification-field"><label><input name="detailsVerified" type="checkbox"> I have checked these product details for accuracy.</label><small class="help-text">This marks the information as checked by you; it does not certify product authenticity.</small></div>
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary">Upload to Shop</button>
+                    <button type="reset" class="btn btn-secondary">Clear Form</button>
+                </div>
+                <div class="status-message" role="status" aria-live="polite"></div>
+            </form>
+        </div>
+    </section>
+</div>
+
+<footer class="footer">
+    &copy; <span id="currentYear"></span>
+    AM Electronics and Accessories. All Rights Reserved.
+</footer>
+
+
+</main>
+
+<script src="api-config.js"></script>
+<script>
+"use strict";
+
+const API_BASE_URL = `${window.AM_API_BASE_URL}/api/products`;
+const ORDERS_API_URL = `${window.AM_API_BASE_URL}/api/orders`;
+const ADMIN_TOKEN_KEY = "ameAdminSession";
+let adminToken = sessionStorage.getItem(ADMIN_TOKEN_KEY) || "";
+
+document.getElementById("currentYear").textContent = new Date().getFullYear();
+
+const adminLogin = document.getElementById("adminLogin");
+const adminApp = document.getElementById("adminApp");
+const adminLoginForm = document.getElementById("adminLoginForm");
+const adminLoginStatus = document.getElementById("adminLoginStatus");
+const adminLoginButton = document.getElementById("adminLoginButton");
+const adminHeaderStatus = document.getElementById("adminHeaderStatus");
+const ordersList = document.getElementById("ordersList");
+const adminProductsList = document.getElementById("adminProductsList");
+const productsStatus = document.getElementById("productsStatus");
+const productScopeFilter = document.getElementById("productScopeFilter");
+const productCategoryFilter = document.getElementById("productCategoryFilter");
+const ORDER_STATUS_OPTIONS = ["new", "dispatched"];
+const HOMEPAGE_CATEGORY_LABELS = {
+    "top-selling": "Top selling products",
+    covers: "Phone covers",
+    "new-arrivals": "New arrivals",
+    "screen-protectors": "Screen protectors",
+    "headphones-earpods": "Headphones and earpods",
+    smartwatches: "Smartwatches",
+    "chargers-cables": "Chargers and cables",
+    "you-may-like": "You may also like"
+};
+let adminProducts = [];
+
+function showAdminApp() {
+    adminLogin.hidden = true;
+    adminApp.hidden = false;
+    adminHeaderStatus.textContent = "Admin signed in";
+}
+
+function showAdminLogin(message = "") {
+    adminToken = "";
+    sessionStorage.removeItem(ADMIN_TOKEN_KEY);
+    adminApp.hidden = true;
+    adminLogin.hidden = false;
+    adminHeaderStatus.textContent = "Sign in required";
+    if (message) {
+        adminLoginStatus.className = "status-message error";
+        adminLoginStatus.textContent = message;
+    }
+}
+
+function adminHeaders(extra = {}) {
+    return { ...extra, Authorization: `Bearer ${adminToken}` };
+}
+
+function formatOrderMoney(amount) {
+    return "KSh " + Number(amount || 0).toLocaleString("en-KE", {
+        minimumFractionDigits: 0,
+        maximumFractionDigits: 2
+    });
+}
+
+function addOrderDetail(container, label, value) {
+    const line = document.createElement("p");
+    const strong = document.createElement("strong");
+    strong.textContent = `${label}: `;
+    line.append(strong, document.createTextNode(value || "—"));
+    container.appendChild(line);
+}
+
+function createOrderCard(order) {
+    const card = document.createElement("article");
+    card.className = "order-card";
+
+    const heading = document.createElement("div");
+    heading.className = "order-card-heading";
+    const headingInfo = document.createElement("div");
+    const reference = document.createElement("h4");
+    reference.textContent = order.reference || "Order";
+    const placed = document.createElement("p");
+    placed.textContent = `Placed ${new Date(order.createdAt).toLocaleString("en-KE")}`;
+    headingInfo.append(reference, placed);
+
+    const statusSelect = document.createElement("select");
+    statusSelect.className = "order-status-control";
+    statusSelect.setAttribute("aria-label", `Status for ${order.reference}`);
+    ORDER_STATUS_OPTIONS.forEach(status => {
+        const option = document.createElement("option");
+        option.value = status;
+        option.textContent = status.replace(/-/g, " ").replace(/\b\w/g, letter => letter.toUpperCase());
+        statusSelect.appendChild(option);
+    });
+    statusSelect.value = ORDER_STATUS_OPTIONS.includes(order.status) ? order.status : "new";
+    statusSelect.addEventListener("change", async () => {
+        const previousStatus = order.status || "new";
+        statusSelect.disabled = true;
+        try {
+            const response = await fetch(`${ORDERS_API_URL}/admin/orders/${encodeURIComponent(order._id)}/status`, {
+                method: "PATCH",
+                headers: adminHeaders({ "Content-Type": "application/json" }),
+                body: JSON.stringify({ status: statusSelect.value })
+            });
+            const result = await response.json().catch(() => ({}));
+            if (response.status === 401) return showAdminLogin(result.message);
+            if (!response.ok) throw new Error(result.message || "Could not update order status.");
+            order.status = result.status;
+        } catch (error) {
+            statusSelect.value = previousStatus;
+            window.alert(error.message);
+        } finally {
+            statusSelect.disabled = false;
+        }
+    });
+    heading.append(headingInfo, statusSelect);
+
+    const body = document.createElement("div");
+    body.className = "order-card-body";
+    const detailsGrid = document.createElement("div");
+    detailsGrid.className = "order-details-grid";
+
+    const customerBlock = document.createElement("section");
+    customerBlock.className = "order-detail-block";
+    const customerTitle = document.createElement("h5");
+    customerTitle.textContent = "Customer";
+    customerBlock.appendChild(customerTitle);
+    addOrderDetail(customerBlock, "Name", order.customer?.name);
+    addOrderDetail(customerBlock, "Phone", order.customer?.phone);
+    addOrderDetail(customerBlock, "Email", order.customer?.email || "Not provided");
+
+    const deliveryBlock = document.createElement("section");
+    deliveryBlock.className = "order-detail-block";
+    const deliveryTitle = document.createElement("h5");
+    deliveryTitle.textContent = "Delivery";
+    deliveryBlock.appendChild(deliveryTitle);
+    addOrderDetail(deliveryBlock, "County", order.delivery?.county);
+    addOrderDetail(deliveryBlock, "Town", order.delivery?.town);
+    addOrderDetail(deliveryBlock, "Estate", order.delivery?.estate);
+    addOrderDetail(deliveryBlock, "Address", order.delivery?.address);
+    if (order.delivery?.instructions) addOrderDetail(deliveryBlock, "Instructions", order.delivery.instructions);
+    detailsGrid.append(customerBlock, deliveryBlock);
+
+    const items = document.createElement("div");
+    items.className = "order-items";
+    (order.items || []).forEach(item => {
+        const itemRow = document.createElement("div");
+        itemRow.className = "order-item";
+        const image = document.createElement("img");
+        image.src = item.image || "";
+        image.alt = item.name || "Product image";
+        image.loading = "lazy";
+        if (!item.image) image.hidden = true;
+        image.addEventListener("error", () => {
+            image.hidden = true;
+            const placeholder = document.createElement("div");
+            placeholder.className = "order-item-image-placeholder";
+            placeholder.textContent = "Product image unavailable";
+            image.replaceWith(placeholder);
+        }, { once: true });
+
+        const itemInfo = document.createElement("div");
+        const itemName = document.createElement("h5");
+        itemName.textContent = item.name || "Unnamed product";
+        const itemMeta = document.createElement("p");
+        itemMeta.textContent = `Qty ${item.quantity} × ${formatOrderMoney(item.unitPrice)}${item.color ? ` · ${item.color}` : ""}`;
+        const imagePath = document.createElement("p");
+        imagePath.textContent = item.image && !item.image.startsWith("data:") ? item.image : "";
+        itemInfo.append(itemName, itemMeta);
+        if (imagePath.textContent) itemInfo.appendChild(imagePath);
+
+        const lineTotal = document.createElement("strong");
+        lineTotal.className = "order-item-total";
+        lineTotal.textContent = formatOrderMoney(item.lineTotal);
+        itemRow.append(image, itemInfo, lineTotal);
+        items.appendChild(itemRow);
+    });
+
+    const totalRow = document.createElement("div");
+    totalRow.className = "order-total-row";
+    const flags = document.createElement("div");
+    flags.className = "order-flags";
+    const addOrderFlag = (labelText, key, checked) => {
+        const label = document.createElement("label");
+        label.className = "order-flag";
+        const checkbox = document.createElement("input");
+        checkbox.type = "checkbox";
+        checkbox.checked = checked;
+        checkbox.setAttribute("aria-label", `${labelText} for ${order.reference}`);
+        const text = document.createElement("span");
+        text.textContent = labelText;
+        checkbox.addEventListener("change", async () => {
+            const previous = !checkbox.checked;
+            checkbox.disabled = true;
+            try {
+                const response = await fetch(`${ORDERS_API_URL}/admin/orders/${encodeURIComponent(order._id)}/flags`, {
+                    method: "PATCH",
+                    headers: adminHeaders({ "Content-Type": "application/json" }),
+                    body: JSON.stringify({ [key]: checkbox.checked })
+                });
+                const result = await response.json().catch(() => ({}));
+                if (response.status === 401) return showAdminLogin(result.message);
+                if (!response.ok) throw new Error(result.message || "Could not update the order.");
+                if (key === "paid") order.paymentStatus = result.paymentStatus;
+                if (key === "deliveryPaid") order.deliveryPaymentStatus = result.deliveryPaymentStatus;
+                if (key === "confirmed") order.confirmed = result.confirmed;
+            } catch (error) {
+                checkbox.checked = previous;
+                window.alert(error.message);
+            } finally {
+                checkbox.disabled = false;
+            }
+        });
+        label.append(checkbox, text);
+        flags.appendChild(label);
+    };
+    addOrderFlag("Products paid", "paid", order.paymentStatus === "paid");
+    addOrderFlag("Delivery paid", "deliveryPaid", order.deliveryPaymentStatus === "paid");
+    addOrderFlag("Order confirmed", "confirmed", order.confirmed === true);
+    const total = document.createElement("strong");
+    total.textContent = `Total ${formatOrderMoney(order.total)}`;
+    totalRow.append(flags, total);
+
+    body.append(detailsGrid, items, totalRow);
+    card.append(heading, body);
+    return card;
+}
+
+async function loadOrders() {
+    ordersList.replaceChildren();
+    const loading = document.createElement("div");
+    loading.className = "orders-empty";
+    loading.textContent = "Loading orders...";
+    ordersList.appendChild(loading);
+    try {
+        const response = await fetch(`${ORDERS_API_URL}/admin/orders`, {
+            headers: adminHeaders()
+        });
+        const result = await response.json().catch(() => ({}));
+        if (response.status === 401) return showAdminLogin(result.message);
+        if (!response.ok) throw new Error(result.message || "Could not load orders.");
+        const orders = Array.isArray(result) ? result : [];
+        ordersList.replaceChildren();
+        if (!orders.length) {
+            const empty = document.createElement("div");
+            empty.className = "orders-empty";
+            empty.textContent = "No customer orders yet. New submissions will appear here.";
+            ordersList.appendChild(empty);
+            return;
+        }
+        orders.forEach(order => ordersList.appendChild(createOrderCard(order)));
+    } catch (error) {
+        const message = document.createElement("div");
+        message.className = "orders-empty";
+        message.textContent = error.message;
+        ordersList.replaceChildren(message);
+    }
+}
+
+function renderAdminProducts() {
+    const scope = productScopeFilter.value;
+    const category = productCategoryFilter.value;
+    const visibleProducts = adminProducts.filter(product => {
+        const productScope = product.targetPage === "homepage" ? "homepage" : "shop";
+        if (scope !== "all" && scope !== productScope) return false;
+        if (category !== "all" && (productScope !== "homepage" || product.category !== category)) return false;
+        return true;
+    });
+
+    adminProductsList.replaceChildren();
+    if (!visibleProducts.length) {
+        const empty = document.createElement("div");
+        empty.className = "orders-empty";
+        empty.textContent = "No products match these filters.";
+        adminProductsList.appendChild(empty);
+        return;
+    }
+
+    visibleProducts.forEach(product => {
+        const card = document.createElement("article");
+        card.className = "admin-product-card";
+        const info = document.createElement("div");
+        info.className = "admin-product-info";
+        const title = document.createElement("h4");
+        title.textContent = product.title || "Unnamed product";
+        const section = product.targetPage === "homepage"
+            ? `Homepage · ${HOMEPAGE_CATEGORY_LABELS[product.category] || "Uncategorized"}`
+            : `Shop${product.shopBadge && product.shopBadge !== "none" ? ` · ${product.shopBadge === "new-arrival" ? "New Arrival" : "Top Seller"} badge` : ""}`;
+        const placement = document.createElement("p");
+        placement.textContent = product.isDemo ? `${section} · Demo preview` : section;
+        const price = document.createElement("p");
+        price.textContent = `Now ${formatOrderMoney(product.price)} · Was ${formatOrderMoney(product.originalPrice)}`;
+        info.append(title, placement, price);
+
+        const removeButton = document.createElement("button");
+        removeButton.type = "button";
+        removeButton.className = "btn btn-danger";
+        removeButton.textContent = "Remove product";
+        removeButton.setAttribute("aria-label", `Remove ${product.title || "product"}`);
+        removeButton.addEventListener("click", async () => {
+            if (!window.confirm(`Remove “${product.title || "this product"}” from ${section}? This deletes the product from the store.`)) return;
+            removeButton.disabled = true;
+            productsStatus.className = "status-message";
+            productsStatus.textContent = "";
+            try {
+                const response = await fetch(`${API_BASE_URL}/${encodeURIComponent(product._id)}`, {
+                    method: "DELETE",
+                    headers: adminHeaders()
+                });
+                const result = await response.json().catch(() => ({}));
+                if (response.status === 401) return showAdminLogin(result.message);
+                if (!response.ok) throw new Error(result.message || "Could not remove the product.");
+                productsStatus.className = "status-message success";
+                productsStatus.textContent = `${product.title || "Product"} was removed.`;
+                await loadAdminProducts();
+            } catch (error) {
+                productsStatus.className = "status-message error";
+                productsStatus.textContent = error.message;
+                removeButton.disabled = false;
+            }
+        });
+        card.append(info, removeButton);
+        adminProductsList.appendChild(card);
+    });
+}
+
+async function loadAdminProducts() {
+    adminProductsList.replaceChildren();
+    const loading = document.createElement("div");
+    loading.className = "orders-empty";
+    loading.textContent = "Loading products...";
+    adminProductsList.appendChild(loading);
+    try {
+        const response = await fetch(`${API_BASE_URL}/admin/list`, { headers: adminHeaders() });
+        const result = await response.json().catch(() => ({}));
+        if (response.status === 401) return showAdminLogin(result.message);
+        if (!response.ok) throw new Error(result.message || "Could not load products.");
+        adminProducts = Array.isArray(result) ? result : [];
+        renderAdminProducts();
+    } catch (error) {
+        const message = document.createElement("div");
+        message.className = "orders-empty";
+        message.textContent = error.message;
+        adminProductsList.replaceChildren(message);
+    }
+}
+
+productScopeFilter.addEventListener("change", () => {
+    productCategoryFilter.disabled = productScopeFilter.value === "shop";
+    renderAdminProducts();
+});
+productCategoryFilter.addEventListener("change", renderAdminProducts);
+document.getElementById("refreshProductsButton").addEventListener("click", loadAdminProducts);
+
+adminLoginForm.addEventListener("submit", async event => {
+    event.preventDefault();
+    adminLoginStatus.className = "status-message";
+    adminLoginStatus.textContent = "";
+    adminLoginButton.disabled = true;
+    adminLoginButton.textContent = "Signing in...";
+    try {
+        const response = await fetch(`${ORDERS_API_URL}/admin/login`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ password: adminLoginForm.elements.password.value })
+        });
+        const result = await response.json().catch(() => ({}));
+        if (!response.ok) throw new Error(result.message || "Sign in failed.");
+        adminToken = result.token;
+        sessionStorage.setItem(ADMIN_TOKEN_KEY, adminToken);
+        adminLoginForm.reset();
+        showAdminApp();
+        await Promise.all([loadOrders(), loadAdminProducts()]);
+    } catch (error) {
+        adminLoginStatus.className = "status-message error";
+        adminLoginStatus.textContent = error.message;
+    } finally {
+        adminLoginButton.disabled = false;
+        adminLoginButton.textContent = "Sign in";
+    }
+});
+
+document.getElementById("refreshOrdersButton").addEventListener("click", loadOrders);
+document.getElementById("adminSignOutButton").addEventListener("click", async () => {
+    try {
+        if (adminToken) await fetch(`${ORDERS_API_URL}/admin/logout`, {
+            method: "POST",
+            headers: adminHeaders()
+        });
+    } finally {
+        showAdminLogin();
+    }
+});
+
+if (adminToken) {
+    fetch(`${ORDERS_API_URL}/admin/orders`, { headers: adminHeaders() })
+        .then(async response => {
+            if (!response.ok) throw new Error("Session expired.");
+            showAdminApp();
+            await Promise.all([loadOrders(), loadAdminProducts()]);
+        })
+        .catch(() => showAdminLogin("Your admin session expired. Please sign in again."));
+}
+
+document.querySelectorAll(".productUploadForm").forEach((form) => {
+    const submitButton = form.querySelector('button[type="submit"]');
+    const statusBox = form.querySelector(".status-message");
+
+    form.addEventListener("submit", async (event) => {
+        event.preventDefault();
+        statusBox.className = "status-message";
+        statusBox.textContent = "";
+
+        const value = (name) => form.elements.namedItem(name)?.value.trim() || "";
+        const originalPrice = Number(value("originalPrice"));
+        const price = Number(value("price"));
+        if (!Number.isFinite(originalPrice) || !Number.isFinite(price) || originalPrice < 0 || price < 0) {
+            statusBox.className = "status-message error";
+            statusBox.textContent = "Enter valid non-negative prices.";
+            return;
+        }
+        if (price > originalPrice) {
+            statusBox.className = "status-message error";
+            statusBox.textContent = "Selling price cannot exceed original price.";
+            return;
+        }
+
+        const product = {
+            targetPage: form.dataset.target,
+            title: value("title"),
+            originalPrice,
+            price,
+            image: value("image"),
+            description: value("description"),
+            stockStatus: value("stockStatus")
+        };
+        if (product.targetPage === "homepage") product.category = value("category");
+        if (product.targetPage === "shop") product.shopBadge = value("shopBadge") || "none";
+
+        const lines = (name) => value(name).split(/\r?\n/).map((item) => item.trim()).filter(Boolean);
+        const specifications = lines("specifications");
+        product.brand = value("brand");
+        product.model = value("model");
+        product.features = lines("features");
+        product.specifications = specifications;
+        product.colors = value("colors").split(",").map((item) => item.trim()).filter(Boolean);
+        product.extraImages = lines("extraImages");
+        product.warranty = value("warranty");
+        product.detailsVerified = form.elements.namedItem("detailsVerified").checked;
+        if (product.features.length > 12 || product.specifications.length > 20 || product.colors.length > 20 || (product.extraImages.length + form.elements.namedItem("extraImageFiles").files.length) > 5) {
+            statusBox.className = "status-message error";
+            statusBox.textContent = "Maximums: 12 features, 20 specifications or colours, and 5 extra images.";
+            return;
+        }
+
+        submitButton.disabled = true;
+        submitButton.textContent = "Uploading...";
+        try {
+            const imageFile = form.elements.namedItem("imageFile").files[0];
+            const extraImageFiles = Array.from(form.elements.namedItem("extraImageFiles").files);
+            if (extraImageFiles.length > 5) throw new Error("Choose no more than 5 additional images.");
+            const totalImageBytes = (imageFile?.size || 0) + extraImageFiles.reduce((total, file) => total + file.size, 0);
+            if (totalImageBytes > 5 * 1024 * 1024) throw new Error("The main and extra image files must total 5 MB or less.");
+            if (imageFile) {
+                if (!imageFile.type.startsWith("image/")) {
+                    throw new Error("Choose an image file.");
+                }
+                if (imageFile.size > 5 * 1024 * 1024) {
+                    throw new Error("Image files must be 5 MB or smaller.");
+                }
+                product.image = await new Promise((resolve, reject) => {
+                    const reader = new FileReader();
+                    reader.onload = () => resolve(reader.result);
+                    reader.onerror = () => reject(new Error("Could not read the image file."));
+                    reader.readAsDataURL(imageFile);
+                });
+            }
+            if (!product.image) throw new Error("Choose an image file or enter an image path.");
+            for (const file of extraImageFiles) {
+                if (!file.type.startsWith("image/")) throw new Error("Choose image files for extra product photos.");
+                product.extraImages.push(await new Promise((resolve, reject) => {
+                    const reader = new FileReader();
+                    reader.onload = () => resolve(reader.result);
+                    reader.onerror = () => reject(new Error("Could not read an extra image."));
+                    reader.readAsDataURL(file);
+                }));
+            }
+
+            const response = await fetch(API_BASE_URL, {
+                method: "POST",
+                headers: adminHeaders({ "Content-Type": "application/json" }),
+                body: JSON.stringify(product)
+            });
+            const result = await response.json().catch(() => ({}));
+            if (!response.ok) throw new Error(result.message || "The server rejected the product.");
+
+            statusBox.className = "status-message success";
+            statusBox.textContent = result.message || "Product uploaded successfully.";
+            form.reset();
+            await loadAdminProducts();
+        } catch (error) {
+            statusBox.className = "status-message error";
+            statusBox.textContent = "Error: " + error.message;
+        } finally {
+            submitButton.disabled = false;
+            submitButton.textContent = form.dataset.target === "homepage"
+                ? "Upload to Homepage"
+                : "Upload to Shop";
+        }
+    });
+});
+</script>
+
+</body>
+</html>
+

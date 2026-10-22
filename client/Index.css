@@ -1,0 +1,5634 @@
+/* =========================================================
+   AM ELECTRONICS
+   COMPLETE PROFESSIONAL RESPONSIVE STYLE.CSS
+   ========================================================= */
+
+/* =========================================================
+   1. GLOBAL RESET
+   ========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    padding-top: 78px;
+    background: #F5F9FC;
+    color: #222222;
+    line-height: 1.5;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button,
+input,
+textarea,
+select {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+button {
+    cursor: pointer;
+}
+
+
+/* =========================================================
+   2. PROFESSIONAL COLOUR PALETTE
+   ========================================================= */
+
+:root {
+    --primary-blue: #0077CC;
+    --dark-blue: #005FA3;
+
+    --light-blue: #F0F8FF;
+    --soft-blue: #D8EBF2;
+    --very-light-blue: #F7FBFF;
+
+    --accent-orange: #FF9800;
+
+    --dark-text: #222222;
+    --secondary-text: #666666;
+    --muted-text: #888888;
+
+    --white: #FFFFFF;
+
+    --border: #DDEAF3;
+
+    --success: #20B858;
+    --whatsapp: #25D366;
+
+    --card-shadow: 0 4px 14px rgba(0, 119, 204, 0.10);
+    --card-shadow-hover: 0 7px 20px rgba(0, 119, 204, 0.16);
+}
+
+
+
+/* =========================================================
+   3. FIXED NAVIGATION BAR
+   ========================================================= */
+
+.site-navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 78px;
+
+    background: #0077cc;
+
+    z-index: 1000;
+
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.12);
+
+    transition:
+        background 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.navbar-container {
+    width: 94%;
+    max-width: 1500px;
+    height: 78px;
+
+    margin: 0 auto;
+
+    display: flex;
+    align-items: center;
+
+    gap: 18px;
+
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   4. NAVBAR LOGO
+   ========================================================= */
+
+.navbar-logo {
+    display: flex;
+    align-items: center;
+
+    flex-shrink: 0;
+}
+
+.navbar-logo img {
+    width: 75px;
+    height: 75px;
+
+    object-fit: contain;
+
+    display: block;
+
+    transition: transform 0.3s ease;
+}
+
+.navbar-logo:hover img {
+    transform: scale(1.04);
+}
+
+
+/* =========================================================
+   5. NAVBAR SEARCH BAR
+   ========================================================= */
+
+.navbar-search {
+    display: flex;
+    align-items: center;
+
+    width: 100%;
+    max-width: 400px;
+    height: 44px;
+
+    background: #ffffff;
+
+    border: 2px solid transparent;
+    border-radius: 30px;
+
+    overflow: hidden;
+
+    box-sizing: border-box;
+
+    transition:
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+/* Search focus effect */
+
+.navbar-search:focus-within {
+    border-color: 1px solid #f47721;
+
+    box-shadow: none;
+}
+
+
+/* Search input */
+
+.navbar-search input {
+    flex: 1;
+
+    width: 100%;
+    min-width: 0;
+    height: 100% !important;
+
+    margin: 0;
+    padding: 0 16px;
+
+    border: none;
+    outline: none;
+
+    background: #ffffff;
+    color: #000000;
+
+    font-size: 14px;
+
+    box-sizing: border-box;
+}
+
+
+/* Search placeholder */
+
+.navbar-search input::placeholder {
+    color: #666666;
+    opacity: 1;
+}
+
+
+/* =========================================================
+   6. STYLISH ORANGE SEARCH BUTTON
+   ========================================================= */
+
+.navbar-search button {
+    flex-shrink: 0;
+
+    height: 100%;
+
+    padding: 0 22px;
+
+    border: none;
+    border-radius: 0 25px 25px 0;
+
+    background: linear-gradient(
+        135deg,
+        #ff8a3d,
+        #f47721
+    );
+
+    color: #ffffff;
+
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+
+    cursor: pointer;
+
+    box-shadow: -2px 0 8px rgba(244, 119, 33, 0.15);
+
+    transition:
+        background 0.3s ease,
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+/* Search button hover */
+
+.navbar-search button:hover {
+    background: linear-gradient(
+        135deg,
+        #f47721,
+        #d96110
+    );
+
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.18);
+}
+
+
+/* Search button click */
+
+.navbar-search button:active {
+    transform: scale(0.96);
+}
+
+
+/* Keyboard accessibility */
+
+.navbar-search button:focus-visible {
+    outline: 2px solid #ffffff;
+    outline-offset: -4px;
+}
+
+
+/* =========================================================
+   7. NAVIGATION MENU
+   ========================================================= */
+
+.navbar-menu {
+    margin-left: auto;
+
+    display: flex;
+    align-items: center;
+
+    gap: 24px;
+}
+
+.navbar-menu a {
+    position: relative;
+
+    color: #ffffff;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    padding: 8px 0;
+
+    text-decoration: none;
+    white-space: nowrap;
+
+    transition: color 0.25s ease;
+}
+
+
+/* Orange underline animation */
+
+.navbar-menu a:not(.navbar-cart)::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    bottom: 0;
+
+    width: 0;
+    height: 3px;
+
+    background: #f47721;
+
+    border-radius: 3px;
+
+    transition: width 0.25s ease;
+}
+
+
+/* Navigation hover */
+
+.navbar-menu a:not(.navbar-cart):hover {
+    color: #ffffff;
+}
+
+.navbar-menu a:not(.navbar-cart):hover::after {
+    width: 100%;
+}
+
+
+/* Active navigation link */
+
+.navbar-menu a.active {
+    color: #ffffff;
+}
+
+.navbar-menu a.active::after {
+    width: 100%;
+}
+
+
+/* =========================================================
+   8. SHOPPING CART
+   ========================================================= */
+
+.navbar-cart {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+
+    gap: 7px;
+
+    padding: 9px 13px !important;
+
+    background: transparent;
+    color: #ffffff !important;
+
+    border: 1px solid rgba(255, 255, 255, 0.55);
+    border-radius: 25px;
+
+    text-decoration: none;
+
+    transition:
+        background 0.25s ease,
+        border-color 0.25s ease,
+        transform 0.25s ease;
+}
+
+
+/* Remove navigation underline from cart */
+
+.navbar-cart::after {
+    display: none !important;
+}
+
+
+/* Cart hover */
+
+.navbar-cart:hover {
+    background: #f47721;
+    border-color: #f47721;
+
+    transform: translateY(-2px);
+}
+
+
+/* Cart icon */
+
+.cart-icon {
+    font-size: 17px;
+    line-height: 1;
+}
+
+
+/* Cart item counter */
+
+.cart-count {
+    min-width: 20px;
+    height: 20px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0 5px;
+
+    background: #f47721;
+    color: #ffffff;
+
+    border-radius: 50%;
+
+    font-size: 11px;
+    font-weight: 700;
+
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   9. MOBILE MENU BUTTON
+   ========================================================= */
+
+.mobile-menu-button {
+    display: none;
+
+    padding: 9px 12px;
+
+    background: transparent;
+    color: #ffffff;
+
+    border: 1px solid rgba(255, 255, 255, 0.45);
+    border-radius: 6px;
+
+    font-size: 22px;
+
+    cursor: pointer;
+
+    transition:
+        background 0.25s ease,
+        border-color 0.25s ease;
+}
+
+
+/* Mobile button hover */
+
+.mobile-menu-button:hover {
+    background: #f47721;
+    border-color: #f47721;
+}
+
+
+/* Keyboard accessibility */
+
+.mobile-menu-button:focus-visible {
+    outline: 2px solid #ffffff;
+    outline-offset: 3px;
+}
+
+
+/* =========================================================
+   10. TABLET RESPONSIVENESS
+   ========================================================= */
+
+@media screen and (max-width: 1100px) {
+
+    .navbar-container {
+        gap: 14px;
+    }
+
+    .navbar-search {
+        max-width: 320px;
+    }
+
+    .navbar-menu {
+        gap: 16px;
+    }
+
+    .navbar-menu a {
+        font-size: 13px;
+    }
+}
+
+
+/* =========================================================
+   11. MOBILE NAVIGATION
+   ========================================================= */
+
+@media screen and (max-width: 850px) {
+
+    .navbar-container {
+        width: 96%;
+        gap: 12px;
+    }
+
+    .navbar-logo img {
+        width: 55px;
+        height: 55px;
+    }
+
+    .navbar-search {
+        flex: 1;
+        max-width: 400px;
+    }
+
+    .mobile-menu-button {
+        display: block;
+        flex-shrink: 0;
+    }
+
+    .navbar-menu {
+        display: none;
+
+        position: absolute;
+        top: 78px;
+        left: 0;
+
+        width: 100%;
+
+        margin: 0;
+        padding: 15px 20px 20px;
+
+        box-sizing: border-box;
+
+        background: #0077cc;
+
+        flex-direction: column;
+        align-items: stretch;
+
+        gap: 5px;
+
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+    }
+
+
+    /* JavaScript adds this class when the menu opens */
+
+    .navbar-menu.active {
+        display: flex;
+    }
+
+    .navbar-menu > a {
+        width: 100%;
+
+        padding: 12px 5px;
+
+        box-sizing: border-box;
+    }
+
+    .navbar-menu > a:not(.navbar-cart)::after {
+        bottom: 4px;
+    }
+
+    .navbar-menu .navbar-cart {
+        width: fit-content;
+        margin-top: 8px;
+    }
+}
+
+
+/* =========================================================
+   12. SMALL MOBILE SCREENS
+   ========================================================= */
+
+@media screen and (max-width: 480px) {
+
+    .navbar-container {
+        width: 100%;
+
+        padding: 0 10px;
+
+        gap: 9px;
+    }
+
+    .navbar-logo img {
+        width: 45px;
+        height: 45px;
+    }
+
+    .navbar-search {
+        height: 38px;
+    }
+
+    .navbar-search input {
+        padding: 0 9px;
+
+        font-size: 12px;
+    }
+
+    .navbar-search button {
+        padding: 0 10px;
+
+        font-size: 12px;
+        letter-spacing: 0;
+    }
+
+    .mobile-menu-button {
+        padding: 7px 9px;
+
+        font-size: 20px;
+    }
+}
+
+
+
+/* =========================================================
+   8. HERO SECTION
+   ========================================================= */
+
+.hero {
+    position: relative;
+
+    width: 90%;
+    max-width: 1400px;
+    height: 400px;
+
+    margin: 18px auto 12px;
+
+    background: #111111;
+
+    border-radius: 20px;
+
+    overflow: hidden;
+}
+
+.hero-slider {
+    position: relative;
+
+    width: 100%;
+    height: 100%;
+}
+
+.hero-slide {
+    position: absolute;
+    inset: 0;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition:
+        opacity 0.7s ease,
+        visibility 0.7s ease;
+}
+
+.hero-slide.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.hero-slide img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+}
+
+.hero-content {
+    position: absolute;
+
+    left: 6%;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    max-width: 470px;
+
+    color: #FFFFFF;
+
+    z-index: 5;
+}
+
+.hero-content h1 {
+    font-size: 42px;
+    line-height: 1.1;
+
+    font-weight: 800;
+
+    margin-bottom: 12px;
+}
+
+.hero-content p {
+    font-size: 17px;
+
+    margin-bottom: 20px;
+}
+
+.hero-button {
+    display: inline-block;
+
+    padding: 11px 22px;
+
+    background: #0077CC;
+    color: #FFFFFF;
+
+    border-radius: 6px;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    transition:
+        background 0.25s ease,
+        transform 0.25s ease;
+}
+
+.hero-button:hover {
+    background: blue;
+
+    transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   9. HERO ARROWS
+   ========================================================= */
+
+.hero-prev,
+.hero-next {
+    position: absolute;
+
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    width: 40px;
+    height: 40px;
+
+    border: none;
+    border-radius: 50%;
+
+    background: white;
+    color: black;
+
+    font-size: 18px;
+
+    z-index: 10;
+
+    transition: background 0.25s ease;
+}
+
+.hero-prev {
+    left: 15px;
+}
+
+.hero-next {
+    right: 15px;
+}
+
+.hero-prev:hover,
+.hero-next:hover {
+    background:#0077CC;
+}
+
+
+/* =========================================================
+   10. HERO DOTS
+   ========================================================= */
+
+.hero-dots {
+    position: absolute;
+
+    left: 50%;
+    bottom: 15px;
+
+    transform: translateX(-50%);
+
+    display: flex;
+    gap: 7px;
+
+    z-index: 10;
+}
+
+.hero-dot {
+    width: 9px;
+    height: 9px;
+
+    border: none;
+    border-radius: 50%;
+
+    background: white;
+}
+
+.hero-dot.active {
+    background: #0077CC;
+}
+
+
+/* =========================================================
+   11. GENERAL PRODUCT SECTION
+   ========================================================= */
+
+.top-selling-section,
+.new-arrivals-section,
+.screen-protectors-section,
+.headphones-section,
+.smartwatches-section,
+.chargers-cables-section,
+.you-may-also-like {
+
+    width: 100%;
+    max-width: 1300px;
+
+    margin: 14px auto;
+
+    padding: 0 20px;
+}
+
+
+/* =========================================================
+   12. SECTION HEADINGS
+   ========================================================= */
+
+.top-selling-header,
+.new-arrivals-header,
+.phone-covers-header,
+.section-heading,
+.smartwatches-heading,
+.chargers-cables-heading,
+.screen-protectors-heading {
+
+    margin-bottom: 8px;
+}
+
+.top-selling-label,
+.new-arrivals-label,
+.phone-covers-label {
+
+    display: block;
+
+    color: #111111;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    letter-spacing: 0.7px;
+
+    margin-bottom: 2px;
+}
+
+.top-selling-header h2,
+.new-arrivals-header h2,
+.phone-covers-header h2,
+.section-heading h2,
+.smartwatches-heading h2,
+.chargers-cables-heading h2,
+.screen-protectors-heading h2 {
+
+    color: #0077CC;
+
+    font-size: 25px;
+    font-weight: 800;
+
+    line-height: 1.15;
+
+    margin: 0;
+}
+
+.top-selling-header p,
+.new-arrivals-header p,
+.phone-covers-header p,
+.section-heading p,
+.smartwatches-heading p,
+.chargers-cables-heading p,
+.screen-protectors-heading p {
+
+    color: #232323;
+
+    font-size: 14px;
+
+    margin-top: 4px;
+}
+
+
+/* =========================================================
+   13. VIEW ALL BUTTONS
+   ========================================================= */
+
+.top-selling-shop-btn,
+.new-arrivals-shop-btn {
+
+    float: right;
+
+    margin-top: -34px;
+
+    padding: 9px 17px;
+
+    border: none;
+    border-radius: 6px;
+
+    background: none;
+    color: #232323;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    transition: background 0.25s ease;
+}
+
+.top-selling-shop-btn:hover,
+.new-arrivals-shop-btn:hover {
+    background: transparent;
+}
+
+
+/* =========================================================
+   14. TOP SELLING CONTAINER
+   ========================================================= */
+
+.top-selling-slider {
+    position: relative;
+
+    width: 100%;
+    padding: 13px 34px;
+
+    background: #f47721;
+    border-radius: 15px;
+
+    overflow: hidden;
+
+    box-shadow: none;
+}
+
+
+/* =========================================================
+   15. TOP SELLING PRODUCT TRACK
+   ========================================================= */
+
+.top-selling-track {
+    width: 100%;
+
+    display: flex;
+    align-items: stretch;
+
+    gap: 10px;
+
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    scroll-behavior: smooth;
+    scroll-snap-type: x proximity;
+
+    scrollbar-width: none;
+}
+
+/* PRESERVE YOUR EXISTING SCROLLBAR SETTING */
+.top-selling-track::-webkit-scrollbar {
+    display: inline-block;
+}
+
+
+/* =========================================================
+   16. TOP SELLING SCROLL BUTTONS
+   ========================================================= */
+
+.top-selling-arrow {
+    position: absolute;
+
+    top: 50%;
+    transform: translateY(-50%);
+
+    width: 34px;
+    height: 34px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #0077CC;
+    color: #FFFFFF;
+
+    border: 2px solid #FFFFFF;
+    border-radius: 50%;
+
+    font-size: 14px;
+
+    cursor: pointer;
+
+    z-index: 5;
+
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.18);
+
+    transition:
+        background 0.25s ease,
+        transform 0.25s ease;
+}
+
+.top-selling-prev {
+    left: 4px;
+}
+
+.top-selling-next {
+    right: 4px;
+}
+
+.top-selling-arrow:hover {
+    background: #f47721;
+    transform: translateY(-50%) scale(1.08);
+}
+
+.top-selling-arrow:focus-visible {
+    outline: 2px solid #FFFFFF;
+    outline-offset: 3px;
+}
+
+
+/* =========================================================
+   17. TOP SELLING CARDS
+   ========================================================= */
+
+.top-selling-card {
+    flex: 0 0 calc((100% - 40px) / 5);
+
+    min-width: 0;
+    min-height: 345px;
+
+    display: flex;
+    flex-direction: column;
+
+    padding: 9px;
+
+    background: #FFFFFF;
+    border-radius: 8px;
+
+    box-shadow: var(--card-shadow);
+
+    overflow: hidden;
+
+    scroll-snap-align: start;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.top-selling-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--card-shadow-hover);
+}
+
+
+/* =========================================================
+   18. TOP SELLING IMAGES
+   ========================================================= */
+
+.top-selling-image {
+    width: 100%;
+    height: 150px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #FFFFFF;
+    border-radius: 6px;
+
+    overflow: hidden;
+}
+
+.top-selling-image img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+
+    transition: transform 0.3s ease;
+}
+
+.top-selling-card:hover .top-selling-image img {
+    transform: scale(1.05);
+}
+
+
+/* =========================================================
+   19. TOP SELLING DETAILS
+   ========================================================= */
+
+.top-selling-details {
+    flex: 1;
+
+    display: flex;
+    flex-direction: column;
+
+    padding: 7px 3px 2px;
+}
+
+.top-selling-details h3 {
+    min-height: 38px;
+
+    color: #17232d;
+
+    font-size: 18px;
+    font-weight: 800;
+
+    line-height: 1.25;
+
+    margin: 0 0 3px;
+}
+
+.top-selling-details p {
+    min-height: 34px;
+
+    color: #687780;
+
+    font-size: 14px;
+    line-height: 1.35;
+
+    margin: 0 0 3px;
+}
+
+/* PRESERVE HIDDEN BEST SELLER BADGES */
+.top-selling-badge {
+    display: none;
+}
+
+
+/* =========================================================
+   20. ALIGNED PRODUCT PRICES
+   ========================================================= */
+
+/* Keep prices at the same vertical position in every card */
+.top-selling-price {
+    margin-top: auto;
+    padding-top: 8px;
+
+    min-height: 48px;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    flex-wrap: wrap;
+    gap: 5px;
+
+    line-height: 1.2;
+}
+
+.top-selling-price del {
+    color: #89949b;
+    font-size: 12px;
+    font-weight: 600;
+
+    white-space: nowrap;
+}
+
+.top-selling-price strong {
+    color: #f47721;
+
+    font-size: 17px;
+    font-weight: 800;
+
+    white-space: nowrap;
+}
+
+/* Discount badge: retain your existing green design */
+.top-selling-price .discount-badge {
+    display: inline-block;
+
+    width: auto;
+    max-width: fit-content !important;
+
+    background: #00b67a;
+    color: #FFFFFF;
+
+    padding: 4px 10px;
+
+    border-radius: 5px;
+
+    font-size: 12px;
+    font-weight: bold;
+
+    white-space: nowrap;
+}
+
+
+/* =========================================
+   TOP SELLING PRODUCT DETAILS LINKS
+   ========================================= */
+
+.product-details-link {
+    display: block;
+    color: inherit;
+    text-decoration: none;
+}
+
+.top-selling-details h3 a {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.top-selling-details h3 a:hover {
+    color: #0077CC;
+}
+
+.product-details-link:focus-visible,
+.top-selling-details h3 a:focus-visible {
+    outline: 2px solid #0077CC;
+    outline-offset: 3px;
+}
+
+
+/* =========================================================
+   21. TOP SELLING ADD TO CART BUTTON
+   ========================================================= */
+
+/* PRESERVE YOUR EXISTING HIDDEN BUTTON SETTING */
+.top-selling-details > button {
+    width: 100%;
+    height: 34px;
+
+    min-height: 34px;
+
+    margin-top: auto;
+
+    display: none;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0 8px;
+
+    border: none;
+    border-radius: 5px;
+
+    background: #0077CC;
+    color: #FFFFFF;
+
+    font-size: 12px;
+    font-weight: 700;
+
+    flex-shrink: 0;
+
+    transition: background 0.25s ease;
+}
+
+.top-selling-details > button:hover {
+    background: var(--dark-blue);
+}
+
+
+/* =========================================================
+   22. RESPONSIVE TOP SELLING CARDS
+   ========================================================= */
+
+@media (max-width: 1024px) {
+    .top-selling-card {
+        flex-basis: calc((100% - 20px) / 3);
+    }
+}
+
+@media (max-width: 600px) {
+    .top-selling-slider {
+        padding: 13px 30px;
+    }
+
+    .top-selling-card {
+        flex-basis: calc((100% - 10px) / 2);
+    }
+
+    .top-selling-arrow {
+        width: 30px;
+        height: 30px;
+
+        font-size: 12px;
+    }
+
+    .top-selling-prev {
+        left: 2px;
+    }
+
+    .top-selling-next {
+        right: 2px;
+    }
+
+    .top-selling-details h3 {
+        font-size: 16px;
+    }
+
+    .top-selling-price {
+        gap: 4px;
+    }
+
+    .top-selling-price strong {
+        font-size: 15px;
+    }
+
+    .top-selling-price .discount-badge {
+        padding: 3px 6px;
+        font-size: 11px;
+    }
+}
+
+
+/* =========================================================
+   19. PHONE COVERS SECTION
+   ========================================================= */
+
+.phone-covers-section {
+
+    width: 100%;
+    max-width: 1290px;
+
+    margin: 8px auto 12px;
+
+    padding: 0 20px;
+}
+
+
+/* =========================================================
+   19A. PHONE COVERS SECTION HEADER
+   ========================================================= */
+
+.phone-covers-header {
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 15px;
+
+    width: 100%;
+
+    margin-bottom: 7px;
+}
+
+
+/* =========================================================
+   19B. PHONE COVERS HEADING AND DESCRIPTION
+   ========================================================= */
+
+.phone-covers-heading {
+
+    flex: 1 1 auto;
+
+    min-width: 0;
+}
+
+.phone-covers-header h2 {
+
+    font-size: 25px;
+    font-weight: 800;
+
+    color: #0077CC;
+
+    margin: 0;
+}
+
+.phone-covers-header p {
+
+    font-size: 14px;
+
+    color: #232323;
+
+    margin-top: 4px;
+    margin-bottom: 0;
+
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   19C. PHONE COVERS VIEW ALL BUTTON
+   ========================================================= */
+
+.phone-covers-view-all {
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 7px;
+
+    flex-shrink: 0;
+
+    padding: 5px 0;
+
+    /* Transparent button background */
+    background: transparent;
+
+    border: none;
+    border-radius: 0;
+
+    color: #0077CC;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    text-decoration: none;
+    white-space: nowrap;
+
+    cursor: pointer;
+
+    transition:
+        color 0.25s ease,
+        gap 0.25s ease;
+}
+
+
+/* FONT AWESOME ARROW */
+
+.phone-covers-view-all i {
+
+    display: inline-block;
+
+    font-size: 13px;
+
+    transition: transform 0.25s ease;
+}
+
+
+/* VIEW ALL HOVER EFFECT */
+
+.phone-covers-view-all:hover {
+
+    color: #005FA3;
+
+    gap: 11px;
+}
+
+.phone-covers-view-all:hover i {
+
+    transform: translateX(3px);
+}
+
+
+/* KEYBOARD ACCESSIBILITY */
+
+.phone-covers-view-all:focus-visible {
+
+    outline: 2px solid #0077CC;
+    outline-offset: 4px;
+
+    border-radius: 3px;
+}
+
+
+/* =========================================================
+   20. GENERAL CAROUSEL CONTAINER
+   ========================================================= */
+
+.carousel-container {
+
+    position: relative;
+
+    width: 100%;
+
+    padding: 13px 34px;
+
+    background: none;
+
+    border-radius: 20px;
+
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   21. ALL CAROUSEL TRACKS
+   ========================================================= */
+
+.phone-covers-grid,
+.product-carousel,
+.products-container,
+.smartwatches-grid,
+.chargers-cables-grid,
+.recommended-products-grid {
+
+    width: 100%;
+
+    display: flex;
+    align-items: stretch;
+
+    gap: 10px;
+
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    scroll-behavior: smooth;
+
+    scrollbar-width: none;
+}
+
+
+/* HIDE CAROUSEL SCROLLBARS */
+
+.phone-covers-grid::-webkit-scrollbar,
+.product-carousel::-webkit-scrollbar,
+.products-container::-webkit-scrollbar,
+.smartwatches-grid::-webkit-scrollbar,
+.chargers-cables-grid::-webkit-scrollbar,
+.recommended-products-grid::-webkit-scrollbar {
+
+    display: none;
+}
+
+
+/* =========================================================
+   22. PHONE COVER CARDS
+   ========================================================= */
+
+.phone-cover-card {
+
+    flex: 0 0 calc((100% - 40px) / 5);
+
+    min-width: 0;
+    min-height: 350px;
+
+    display: flex;
+    flex-direction: column;
+
+    padding: 9px;
+
+    background: #FFFFFF;
+
+    border: 1px solid #0077CC;
+    border-radius: 8px;
+
+    box-shadow: var(--card-shadow);
+
+    overflow: hidden;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+
+/* PRODUCT CARD HOVER EFFECT */
+
+.phone-cover-card:hover {
+
+    transform: translateY(-4px);
+
+    box-shadow: var(--card-shadow-hover);
+}
+
+
+/* =========================================================
+   22A. CLICKABLE PHONE COVER CARD CONTENT
+   ========================================================= */
+
+.phone-cover-card > .product-card-link {
+
+    display: flex;
+    flex-direction: column;
+
+    flex: 1 1 auto;
+
+    min-width: 0;
+    min-height: 0;
+
+    color: inherit;
+
+    text-decoration: none;
+}
+
+
+/* PRODUCT TITLE */
+
+.phone-cover-card .product-card-link h3 {
+
+    color: #17232D;
+
+    text-decoration: none;
+}
+
+
+/* KEYBOARD FOCUS */
+
+.phone-cover-card > .product-card-link:focus-visible {
+
+    outline: 2px solid #0077CC;
+    outline-offset: 3px;
+
+    border-radius: 5px;
+}
+
+
+/* =========================================================
+   23. PHONE COVER IMAGE
+   ========================================================= */
+
+.phone-cover-image {
+
+    width: 100%;
+    height: 150px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #FFFFFF;
+
+    border-radius: 5px;
+
+    overflow: hidden;
+}
+
+
+/* PRODUCT IMAGE */
+
+.phone-cover-image img {
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+
+    transition: transform 0.3s ease;
+}
+
+
+/* IMAGE HOVER EFFECT */
+
+.phone-cover-card:hover .phone-cover-image img {
+
+    transform: scale(1.05);
+}
+
+
+/* =========================================================
+   24. PHONE COVER DETAILS
+   ========================================================= */
+
+.phone-cover-details {
+
+    flex: 1 1 auto;
+
+    min-width: 0;
+
+    display: flex;
+    flex-direction: column;
+
+    padding: 7px 3px 2px;
+}
+
+
+/* STOCK BADGE */
+
+.phone-cover-badge {
+
+    display: none;
+
+    width: fit-content;
+
+    padding: 3px 7px;
+
+    margin-bottom: 4px;
+
+    background: var(--success);
+    color: #FFFFFF;
+
+    border-radius: 4px;
+
+    font-size: 9px;
+    font-weight: 800;
+}
+
+
+/* PRODUCT TITLE */
+
+.phone-cover-details h3 {
+
+    min-height: 38px;
+
+    color: #17232D;
+
+    font-size: 18px;
+    font-weight: 800;
+
+    line-height: 1.25;
+
+    margin-top: 0;
+    margin-bottom: 3px;
+}
+
+
+/* PRODUCT DESCRIPTION */
+
+.phone-cover-details > p {
+
+    min-height: 34px;
+
+    color: #687780;
+
+    font-size: 14px;
+    line-height: 1.35;
+
+    margin-top: 0;
+    margin-bottom: 3px;
+}
+
+
+/* =========================================================
+   24A. PHONE COVER DISCOUNT BADGE
+   ========================================================= */
+
+.discount-badge {
+
+    display: inline-block;
+
+    width: auto;
+
+    max-width: fit-content !important;
+
+    background: #00B67A;
+    color: #FFFFFF;
+
+    padding: 4px 10px;
+
+    border-radius: 5px;
+
+    font-size: 12px;
+    font-weight: bold;
+}
+
+
+/* =========================================================
+   25. PHONE COVER PRICES
+   ========================================================= */
+
+/* Align prices near the bottom of each card */
+
+.phone-cover-details .product-price {
+
+    margin-top: auto;
+    margin-bottom: 5px;
+
+    padding-top: 12px;
+}
+
+
+/* PRICE PARAGRAPH */
+
+.phone-cover-details .product-price > p {
+
+    margin: 0;
+}
+
+
+/* CURRENT PRICE */
+
+.product-price strong {
+
+    color: #F47721;
+
+    font-size: 17px;
+    font-weight: 800;
+}
+
+
+/* OLD PRICE */
+
+.product-price del {
+
+    color: #89949B;
+
+    font-size: 13px;
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   26. PHONE COVER ADD TO CART
+   ========================================================= */
+
+.phone-cover-cart {
+
+    width: 100%;
+    height: 34px;
+
+    min-height: 34px;
+
+    display: none;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 6px;
+
+    margin-top: auto;
+
+    padding: 0 8px;
+
+    border: none;
+    border-radius: 5px;
+
+    background: var(--primary-blue);
+    color: #FFFFFF;
+
+    font-size: 12px;
+    font-weight: 700;
+
+    flex-shrink: 0;
+
+    cursor: pointer;
+
+    transition: background 0.25s ease;
+}
+
+
+/* ADD TO CART HOVER */
+
+.phone-cover-cart:hover {
+
+    background: var(--dark-blue);
+}
+
+
+/* =========================================================
+   27. CAROUSEL ARROWS
+   ========================================================= */
+
+.carousel-arrow,
+.carousel-button {
+
+    position: absolute;
+
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    width: 34px;
+    height: 34px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: none;
+    border-radius: 50%;
+
+    background: #0077CC;
+    color: #FFFFFF;
+
+    font-size: 15px;
+
+    z-index: 20;
+
+    cursor: pointer;
+
+    transition:
+        background 0.25s ease,
+        transform 0.25s ease;
+}
+
+
+/* CAROUSEL ARROW HOVER */
+
+.carousel-arrow:hover,
+.carousel-button:hover {
+
+    background: #005FA3;
+
+    transform: translateY(-50%) scale(1.05);
+}
+
+
+/* LEFT ARROW */
+
+.carousel-prev {
+
+    left: 5px;
+}
+
+
+/* RIGHT ARROW */
+
+.carousel-next {
+
+    right: 5px;
+}
+
+
+/* =========================================================
+   28. PHONE COVERS RESPONSIVE DESIGN
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    .phone-cover-card {
+
+        flex-basis: calc((100% - 30px) / 4);
+    }
+
+}
+
+
+@media (max-width: 700px) {
+
+    .phone-cover-card {
+
+        flex-basis: calc((100% - 20px) / 3);
+    }
+
+    .phone-cover-details h3 {
+
+        font-size: 16px;
+    }
+
+    .phone-cover-details > p {
+
+        font-size: 13px;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    /* HEADER LAYOUT */
+
+    .phone-covers-header {
+
+        gap: 10px;
+
+        align-items: center;
+
+        margin-bottom: 7px;
+    }
+
+
+    /* HEADING */
+
+    .phone-covers-header h2 {
+
+        font-size: 22px;
+    }
+
+
+    /* DESCRIPTION */
+
+    .phone-covers-header p {
+
+        font-size: 13px;
+        line-height: 1.4;
+    }
+
+
+    /* VIEW ALL BUTTON */
+
+    .phone-covers-view-all {
+
+        gap: 5px;
+
+        font-size: 12px;
+    }
+
+
+    .phone-covers-view-all i {
+
+        font-size: 11px;
+    }
+
+
+    /* PRODUCT CARDS */
+
+    .phone-cover-card {
+
+        flex-basis: calc((100% - 10px) / 2);
+
+        min-height: 340px;
+    }
+
+
+    /* PRODUCT IMAGES */
+
+    .phone-cover-image {
+
+        height: 135px;
+    }
+
+
+    /* PRODUCT TITLES */
+
+    .phone-cover-details h3 {
+
+        font-size: 15px;
+    }
+
+
+    /* PRODUCT DESCRIPTIONS */
+
+    .phone-cover-details > p {
+
+        font-size: 12px;
+    }
+
+
+    /* PRICES */
+
+    .product-price strong {
+
+        font-size: 15px;
+    }
+
+    .product-price del {
+
+        font-size: 12px;
+    }
+
+
+    /* CAROUSEL */
+
+    .carousel-container {
+
+        padding: 13px 27px;
+    }
+
+    .carousel-arrow,
+    .carousel-button {
+
+        width: 28px;
+        height: 28px;
+
+        font-size: 12px;
+    }
+
+    .carousel-prev {
+
+        left: 2px;
+    }
+
+    .carousel-next {
+
+        right: 2px;
+    }
+
+}
+
+
+/* =========================================================
+   29. SMALL MOBILE SCREENS
+   ========================================================= */
+
+@media (max-width: 380px) {
+
+    .phone-covers-section {
+
+        padding: 0 12px;
+    }
+
+    .phone-covers-header {
+
+        gap: 6px;
+    }
+
+    .phone-covers-header h2 {
+
+        font-size: 19px;
+    }
+
+    .phone-covers-header p {
+
+        font-size: 12px;
+    }
+
+    .phone-covers-view-all {
+
+        font-size: 11px;
+
+        gap: 4px;
+    }
+
+    .phone-cover-card {
+
+        flex-basis: 100%;
+    }
+
+}
+
+
+/* =========================================================
+   NEW ARRIVALS SECTION
+   ========================================================= */
+
+.new-arrivals-section {
+    width: 100%;
+    max-width: 1300px;
+    margin: 5px auto 5px;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+/* =========================================================
+   NEW ARRIVALS HEADER
+   ========================================================= */
+
+.new-arrivals-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    margin-bottom: 12px;
+}
+
+.new-arrivals-header h2 {
+    margin: 0 0 5px;
+    color: #0077cc;
+    font-size: 25px;
+    font-weight: 800;
+    line-height: 1.2;
+}
+
+.new-arrivals-header p {
+    margin: 0;
+    color: #687780;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+/* =========================================================
+   VIEW ALL BUTTON WITH FONT AWESOME ARROW
+   No background; text and arrow only
+   ========================================================= */
+
+.new-arrivals-shop-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+
+    flex-shrink: 0;
+    padding: 8px 0;
+
+    background: transparent;
+    color: #0077CC;
+
+    border: none;
+    border-radius: 0;
+
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 800;
+
+    white-space: nowrap;
+
+    transition: color 0.25s ease;
+}
+
+.new-arrivals-shop-btn i {
+    font-size: 13px;
+    transition: transform 0.25s ease;
+}
+
+.new-arrivals-shop-btn:hover {
+    background: transparent;
+    color: #F47721;
+}
+
+.new-arrivals-shop-btn:hover i {
+    transform: translateX(4px);
+}
+
+/* =========================================================
+   NEW ARRIVALS SLIDER CONTAINER
+   Reduced left and right padding
+   ========================================================= */
+
+.new-arrivals-slider {
+    position: relative;
+    width: 100%;
+    box-sizing: border-box;
+
+    /* Reduced horizontal padding from 40px to 25px */
+    padding: 13px 25px;
+
+    background: #F47721;
+    border-radius: 20px;
+
+    overflow: hidden;
+}
+
+/* =========================================================
+   HORIZONTAL PRODUCT TRACK
+   Shows five product cards on desktop
+   ========================================================= */
+
+.new-arrivals-track {
+    width: 100%;
+    box-sizing: border-box;
+
+    display: flex;
+    align-items: stretch;
+    gap: 10px;
+
+    padding: 0 3px 6px;
+
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.new-arrivals-track::-webkit-scrollbar {
+    display: none;
+}
+
+/* =========================================================
+   NEW ARRIVALS PRODUCT CARDS
+   ========================================================= */
+
+.new-arrival-card {
+    flex: 0 0 calc((100% - 40px) / 5);
+    min-width: 0;
+    min-height: 350px;
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: column;
+
+    padding: 9px;
+
+    background: #FFFFFF;
+    border: 1px solid #F47721;
+    border-radius: 8px;
+
+    box-shadow: none;
+    overflow: hidden;
+
+    color: inherit;
+    text-decoration: none;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.new-arrival-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
+}
+
+/* =========================================================
+   PRODUCT IMAGE
+   ========================================================= */
+
+.new-arrival-image {
+    width: 100%;
+    height: 150px;
+    flex-shrink: 0;
+    box-sizing: border-box;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #FFFFFF;
+    border-radius: 6px;
+
+    overflow: hidden;
+}
+
+.new-arrival-image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+
+    transition: transform 0.3s ease;
+}
+
+.new-arrival-card:hover .new-arrival-image img {
+    transform: scale(1.05);
+}
+
+/* =========================================================
+   PRODUCT DETAILS
+   ========================================================= */
+
+.new-arrival-details {
+    flex: 1;
+
+    display: flex;
+    flex-direction: column;
+
+    padding: 7px 3px 2px;
+}
+
+.new-arrival-details h3 {
+    min-height: 38px;
+
+    margin: 0 0 3px;
+
+    color: #17232D;
+    font-size: 18px;
+    font-weight: 800;
+    line-height: 1.25;
+}
+
+.new-arrival-details p {
+    min-height: 34px;
+
+    margin: 0 0 5px;
+
+    color: #687780;
+    font-size: 14px;
+    line-height: 1.35;
+}
+
+/* =========================================================
+   DISCOUNT BADGE
+   ========================================================= */
+
+.discount-badge {
+    display: inline-block;
+    width: auto;
+    max-width: fit-content;
+
+    margin: 0 0 5px;
+    padding: 4px 10px;
+
+    background: #00B67A;
+    color: #FFFFFF;
+
+    border-radius: 5px;
+
+    font-size: 12px;
+    font-weight: 700;
+}
+
+/* =========================================================
+   PRODUCT PRICES
+   ========================================================= */
+
+.new-arrival-details-price,
+.new-arrival-price {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 6px;
+
+    margin-top: auto;
+    margin-bottom: 5px;
+}
+
+.new-arrival-details strong,
+.new-arrival-price strong {
+    color: #F47721;
+    font-size: 17px;
+    font-weight: 800;
+}
+
+.new-arrival-details del,
+.new-arrival-price del {
+    color: #89949B;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+/* =========================================================
+   PRODUCT BUTTON
+   Preserves styling if a button exists inside the card
+   ========================================================= */
+
+.new-arrival-details > button {
+    width: 100%;
+    height: 34px;
+    min-height: 34px;
+
+    margin-top: auto;
+
+    border: none;
+    border-radius: 5px;
+
+    background: #F47721;
+    color: #FFFFFF;
+
+    font-size: 12px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: background 0.25s ease;
+}
+
+.new-arrival-details > button:hover {
+    background: #0077CC;
+}
+
+/* Keep the existing New Arrivals badge hidden */
+
+.new-arrival-badge {
+    display: none;
+}
+
+/* =========================================================
+   CAROUSEL NAVIGATION ARROWS
+   ========================================================= */
+
+.new-arrivals-arrow {
+    position: absolute;
+    top: 50%;
+    z-index: 5;
+
+    width: 34px;
+    height: 34px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transform: translateY(-50%);
+
+    border: none;
+    border-radius: 50%;
+
+    background: #0077CC;
+    color: #FFFFFF;
+
+    font-size: 14px;
+    cursor: pointer;
+
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+
+    transition:
+        background 0.25s ease,
+        transform 0.25s ease;
+}
+
+.new-arrivals-prev {
+    left: 5px;
+}
+
+.new-arrivals-next {
+    right: 5px;
+}
+
+.new-arrivals-arrow:hover {
+    background: #000000;
+}
+
+.new-arrivals-prev:hover {
+    transform: translateY(-50%) scale(1.08);
+}
+
+.new-arrivals-next:hover {
+    transform: translateY(-50%) scale(1.08);
+}
+
+/* =========================================================
+   TABLET RESPONSIVENESS
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    .new-arrivals-section {
+        padding: 0 15px;
+    }
+
+    .new-arrivals-slider {
+        padding: 12px 25px;
+    }
+
+    .new-arrival-card {
+        flex-basis: calc((100% - 20px) / 3);
+    }
+
+    .new-arrivals-header h2 {
+        font-size: 27px;
+    }
+}
+
+/* =========================================================
+   MOBILE RESPONSIVENESS
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    .new-arrivals-section {
+        margin-top: 5px;
+        margin-bottom: 5px;
+        padding: 0 10px;
+    }
+
+    .new-arrivals-header {
+        gap: 8px;
+        margin-bottom: 10px;
+    }
+
+    .new-arrivals-header h2 {
+        font-size: 23px;
+    }
+
+    .new-arrivals-header p {
+        font-size: 12px;
+    }
+
+    .new-arrivals-shop-btn {
+        gap: 5px;
+        padding: 8px 0;
+        font-size: 12px;
+    }
+
+    .new-arrivals-shop-btn i {
+        font-size: 12px;
+    }
+
+    .new-arrivals-slider {
+        padding: 10px 25px;
+        border-radius: 14px;
+    }
+
+    .new-arrivals-track {
+        gap: 10px;
+    }
+
+    .new-arrival-card {
+        flex-basis: calc((100% - 10px) / 2);
+        min-height: 330px;
+        padding: 7px;
+    }
+
+    .new-arrival-image {
+        height: 125px;
+    }
+
+    .new-arrival-details h3 {
+        font-size: 15px;
+        min-height: 36px;
+    }
+
+    .new-arrival-details p {
+        font-size: 12px;
+        min-height: 32px;
+    }
+
+    .new-arrival-details strong,
+    .new-arrival-price strong {
+        font-size: 15px;
+    }
+
+    .new-arrival-details del,
+    .new-arrival-price del {
+        font-size: 11px;
+    }
+
+    .discount-badge {
+        padding: 3px 7px;
+        font-size: 11px;
+    }
+
+    .new-arrivals-arrow {
+        width: 29px;
+        height: 29px;
+        font-size: 12px;
+    }
+
+    .new-arrivals-prev {
+        left: 3px;
+    }
+
+    .new-arrivals-next {
+        right: 3px;
+    }
+}
+
+
+
+
+
+/* =========================================================
+   29. OTHER CATEGORY SECTIONS
+   ========================================================= */
+
+.screen-protectors-section,
+.headphones-section,
+.smartwatches-section,
+.chargers-cables-section,
+.you-may-also-like {
+
+    margin-top: 12px;
+    margin-bottom: 12px;
+}
+
+.screen-protectors-section .carousel-container,
+.headphones-section .carousel-container,
+.smartwatches-section .carousel-container,
+.chargers-cables-section .carousel-container,
+.you-may-also-like .carousel-container {
+
+    background: none;
+}
+
+
+
+/* =========================================================
+   SCREEN PROTECTORS SECTION
+   ========================================================= */
+
+.screen-protectors-section {
+    width: 100%;
+    max-width: 1300px;
+    margin: 14px auto;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   SECTION HEADER
+   ========================================================= */
+
+.screen-protectors-section .screen-protectors-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    width: 100%;
+    margin: 0 0 12px;
+}
+
+.screen-protectors-section .screen-protectors-heading > div {
+    flex: 1;
+    min-width: 0;
+}
+
+.screen-protectors-section .screen-protectors-heading h2 {
+    margin: 0;
+    color: #0077cc;
+    font-size: 25px;
+    font-weight: 800;
+    line-height: 1.2;
+    text-align: left;
+}
+
+
+/* =========================================================
+   VIEW ALL BUTTON
+   ========================================================= */
+
+.screen-protectors-shop-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    margin-left: auto;
+    padding: 8px 0;
+    flex-shrink: 0;
+
+    background: transparent;
+    color: #0077CC;
+    border: none;
+
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 800;
+    white-space: nowrap;
+
+    transition: color 0.25s ease;
+}
+
+.screen-protectors-shop-btn i {
+    font-size: 13px;
+    transition: transform 0.25s ease;
+}
+
+.screen-protectors-shop-btn:hover {
+    color: #F47721;
+}
+
+.screen-protectors-shop-btn:hover i {
+    transform: translateX(4px);
+}
+
+
+/* =========================================================
+   PRODUCT CAROUSEL
+   ========================================================= */
+
+.screen-protectors-grid {
+    display: flex;
+    align-items: stretch;
+    gap: 10px;
+    width: 100%;
+
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.screen-protectors-grid::-webkit-scrollbar {
+    display: none;
+}
+
+
+/* =========================================================
+   PRODUCT CARD
+   ========================================================= */
+
+.screen-protector-card {
+    flex: 0 0 calc((100% - 40px) / 5);
+    min-width: 0;
+    min-height: 350px;
+
+    display: flex;
+    flex-direction: column;
+    padding: 9px;
+    box-sizing: border-box;
+
+    background: #FFFFFF;
+    border: 1px solid #0077CC;
+    border-radius: 8px;
+
+    box-shadow: none;
+    overflow: hidden;
+    scroll-snap-align: start;
+
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.screen-protector-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--card-shadow-hover);
+}
+
+
+/* =========================================================
+   PRODUCT IMAGE
+   ========================================================= */
+
+.screen-protector-image {
+    width: 100%;
+    height: 150px;
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #FFFFFF;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.screen-protector-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.screen-protector-card:hover .screen-protector-image img {
+    transform: scale(1.05);
+}
+
+
+/* =========================================================
+   PRODUCT DETAILS
+   ========================================================= */
+
+.screen-protector-details {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 7px 3px 2px;
+}
+
+.screen-protector-details h3 {
+    min-height: 38px;
+    margin: 0 0 3px;
+
+    color: #17232D;
+    font-size: 18px;
+    font-weight: 800;
+    line-height: 1.25;
+}
+
+.screen-protector-description {
+    min-height: 34px;
+    margin: 0 0 3px;
+
+    color: #687780;
+    font-size: 14px;
+    line-height: 1.35;
+}
+
+
+/* =========================================================
+   PRODUCT PRICE
+   ========================================================= */
+
+.screen-protector-price {
+    margin-top: auto;
+    margin-bottom: 5px;
+
+    color: #F47721;
+    font-size: 17px;
+    font-weight: 800;
+}
+
+.screen-protector-price del {
+    margin-left: 3px;
+    color: #89949B;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   AVAILABILITY
+   ========================================================= */
+
+.screen-protector-availability {
+    display: none;
+    align-items: center;
+    gap: 5px;
+    margin-bottom: 6px;
+
+    color: var(--success);
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.screen-protector-availability span {
+    width: 7px;
+    height: 7px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background: var(--success);
+}
+
+
+/* =========================================================
+   ADD TO CART
+   ========================================================= */
+
+.screen-protector-cart-btn {
+    display: none;
+    width: 100%;
+    height: 34px;
+    min-height: 34px;
+
+    border: none;
+    border-radius: 5px;
+
+    background: #0077CC;
+    color: #FFFFFF;
+
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+
+    transition: background 0.25s ease;
+}
+
+.screen-protector-cart-btn:hover {
+    background: #005FA3;
+}
+
+
+/* =========================================================
+   SCREEN PROTECTORS RESPONSIVE STYLES
+   ========================================================= */
+
+@media (max-width: 1024px) {
+
+    .screen-protector-card {
+        flex-basis: calc((100% - 30px) / 4);
+    }
+
+    .screen-protector-image {
+        height: 145px;
+    }
+
+}
+
+
+/* =========================================================
+   TABLET RESPONSIVE STYLES
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+    .screen-protectors-section {
+        padding: 0 15px;
+    }
+
+    .screen-protectors-section .screen-protectors-heading h2 {
+        font-size: 26px;
+    }
+
+    .screen-protector-card {
+        flex-basis: calc((100% - 20px) / 3);
+        min-height: 330px;
+    }
+
+    .screen-protector-image {
+        height: 135px;
+    }
+
+    .screen-protector-details h3 {
+        font-size: 16px;
+    }
+
+    .screen-protector-description {
+        font-size: 13px;
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE RESPONSIVE STYLES
+   ========================================================= */
+
+@media (max-width: 480px) {
+
+    .screen-protectors-section {
+        padding: 0 10px;
+    }
+
+    .screen-protectors-section .screen-protectors-heading {
+        gap: 8px;
+    }
+
+    .screen-protectors-section .screen-protectors-heading h2 {
+        font-size: 22px;
+    }
+
+    .screen-protectors-shop-btn {
+        font-size: 12px;
+    }
+
+    .screen-protector-card {
+        flex-basis: calc((100% - 10px) / 2);
+        min-height: 315px;
+        padding: 8px;
+    }
+
+    .screen-protector-image {
+        height: 125px;
+    }
+
+    .screen-protector-details h3 {
+        min-height: 35px;
+        font-size: 14px;
+    }
+
+    .screen-protector-description {
+        min-height: 32px;
+        font-size: 12px;
+    }
+
+    .screen-protector-price {
+        font-size: 15px;
+    }
+
+    .screen-protector-price del {
+        font-size: 11px;
+    }
+
+}
+
+
+
+/* =========================================================
+   31. HEADPHONES & EARPODS SECTION
+   ========================================================= */
+
+/* SECTION HEADING AND VIEW ALL BUTTON */
+
+.headphones-section .section-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+.headphones-section .section-heading-content {
+    flex: 1;
+    min-width: 0;
+}
+
+.headphones-section .section-heading h2 {
+    margin-bottom: 5px;
+}
+
+.headphones-section .section-heading p {
+    margin-bottom: 0;
+}
+
+
+/* HEADPHONES VIEW ALL LINK */
+
+.headphones-shop-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+
+    flex-shrink: 0;
+
+    padding: 8px 0;
+
+    background: transparent;
+    color: #0077CC;
+
+    border: none;
+    border-radius: 0;
+
+    text-decoration: none;
+
+    font-size: 14px;
+    font-weight: 800;
+
+    white-space: nowrap;
+
+    cursor: pointer;
+
+    transition: color 0.25s ease;
+}
+
+.headphones-shop-btn i {
+    font-size: 13px;
+    transition: transform 0.25s ease;
+}
+
+.headphones-shop-btn:hover {
+    background: transparent;
+    color: #F47721;
+}
+
+.headphones-shop-btn:hover i {
+    transform: translateX(4px);
+}
+
+
+/* =========================================================
+   HEADPHONES CAROUSEL
+   ========================================================= */
+
+.headphones-section .carousel-container {
+    position: relative;
+    width: 100%;
+    min-width: 0;
+}
+
+.headphones-section .products-container {
+    display: flex;
+    gap: 10px;
+
+    width: 100%;
+    min-width: 0;
+
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.headphones-section .products-container::-webkit-scrollbar {
+    display: none;
+}
+
+.headphones-section .products-container .product-card {
+    scroll-snap-align: start;
+}
+
+
+/* =========================================================
+   HEADPHONE PRODUCT CARDS
+   ========================================================= */
+
+.headphones-section .product-card {
+    flex: 0 0 calc((100% - 40px) / 5);
+    min-width: 0;
+    min-height: 350px;
+
+    display: flex;
+    flex-direction: column;
+
+    padding: 9px;
+
+    background: #FFFFFF;
+    border: 1px solid #0077CC;
+    border-radius: 8px;
+
+    box-shadow: var(--card-shadow);
+    overflow: hidden;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.headphones-section .product-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--card-shadow-hover);
+}
+
+
+/* =========================================================
+   HEADPHONE PRODUCT LINKS
+   ========================================================= */
+
+.headphones-section .headphones-product-link {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+
+    min-width: 0;
+
+    color: inherit;
+    text-decoration: none;
+}
+
+.headphones-section .headphones-product-link:focus-visible {
+    outline: 2px solid #0077CC;
+    outline-offset: 3px;
+    border-radius: 5px;
+}
+
+
+/* =========================================================
+   HEADPHONE PRODUCT IMAGES
+   ========================================================= */
+
+.headphones-section .product-image {
+    width: 100%;
+    height: 150px;
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #FFFFFF;
+    border-radius: 6px;
+
+    overflow: hidden;
+}
+
+.headphones-section .product-image img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+
+    transition: transform 0.3s ease;
+}
+
+.headphones-section .product-card:hover .product-image img {
+    transform: scale(1.05);
+}
+
+
+/* =========================================================
+   HEADPHONE PRODUCT DETAILS
+   ========================================================= */
+
+.headphones-section .product-info {
+    flex: 1;
+
+    display: flex;
+    flex-direction: column;
+
+    padding: 7px 3px 2px;
+}
+
+.headphones-section .product-info h3 {
+    min-height: 38px;
+
+    color: #17232D;
+
+    font-size: 18px;
+    font-weight: 800;
+    line-height: 1.25;
+
+    margin-bottom: 3px;
+}
+
+.headphones-section .product-description {
+    min-height: 34px;
+
+    color: #687780;
+
+    font-size: 14px;
+    line-height: 1.35;
+
+    margin-bottom: 3px;
+}
+
+
+/* =========================================================
+   HEADPHONE PRODUCT PRICES
+   ========================================================= */
+
+.headphones-section .product-info .product-price {
+    margin-top: auto;
+    margin-bottom: 5px;
+}
+
+.headphones-section .product-info .product-price strong {
+    color: #F47721;
+
+    font-size: 17px;
+    font-weight: 800;
+}
+
+.headphones-section .product-info .product-price del {
+    color: #89949B;
+
+    font-size: 12px;
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   HEADPHONE PRODUCT AVAILABILITY
+   ========================================================= */
+
+.headphones-section .availability.in-stock {
+    display: none;
+    align-items: center;
+    gap: 5px;
+
+    color: var(--success);
+
+    font-size: 11px;
+    font-weight: 700;
+
+    margin-bottom: 6px;
+}
+
+.headphones-section .availability.in-stock::before {
+    content: "";
+
+    width: 7px;
+    height: 7px;
+    flex-shrink: 0;
+
+    border-radius: 50%;
+    background: var(--success);
+}
+
+
+/* =========================================================
+   HEADPHONE ADD-TO-CART BUTTON
+   ========================================================= */
+
+.headphones-section .product-card .add-to-cart {
+    display: none;
+
+    width: 100%;
+    height: 34px;
+    min-height: 34px;
+
+    margin-top: auto;
+
+    border: none;
+    border-radius: 5px;
+
+    background: var(--primary-blue);
+    color: #FFFFFF;
+
+    font-size: 12px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: background 0.25s ease;
+}
+
+.headphones-section .product-card .add-to-cart:hover {
+    background: var(--dark-blue);
+}
+
+
+/* =========================================================
+   32. RESPONSIVE HEADPHONE PRODUCT CARDS
+   ========================================================= */
+
+/* TABLETS */
+
+@media (max-width: 1024px) {
+    .headphones-section .product-card {
+        flex-basis: calc((100% - 30px) / 4);
+    }
+}
+
+
+/* SMALL TABLETS */
+
+@media (max-width: 768px) {
+    .headphones-section .product-card {
+        flex-basis: calc((100% - 20px) / 3);
+        min-height: 330px;
+    }
+
+    .headphones-section .product-image {
+        height: 135px;
+    }
+
+    .headphones-section .product-info h3 {
+        font-size: 16px;
+    }
+
+    .headphones-section .product-description {
+        font-size: 13px;
+    }
+}
+
+
+/* MOBILE PHONES */
+
+@media (max-width: 480px) {
+    .headphones-section .product-card {
+        flex-basis: calc((100% - 10px) / 2);
+        min-height: 315px;
+
+        padding: 8px;
+    }
+
+    .headphones-section .product-image {
+        height: 125px;
+    }
+
+    .headphones-section .product-info h3 {
+        font-size: 14px;
+        min-height: 35px;
+    }
+
+    .headphones-section .product-description {
+        font-size: 12px;
+        min-height: 32px;
+    }
+
+    .headphones-section .product-info .product-price strong {
+        font-size: 15px;
+    }
+
+    .headphones-section .product-info .product-price del {
+        font-size: 11px;
+    }
+
+    .headphones-shop-btn {
+        font-size: 13px;
+    }
+
+    .headphones-section .section-heading {
+        gap: 8px;
+    }
+}
+
+
+
+/* =========================================================
+   32. SMARTWATCHES SECTION
+   ========================================================= */
+
+/* =========================================================
+   SECTION HEADING
+   ========================================================= */
+
+.smartwatches-section .smartwatches-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+.smartwatches-heading-content {
+    flex: 1;
+    min-width: 0;
+}
+
+.smartwatches-heading-content h2 {
+    margin-bottom: 5px;
+}
+
+.smartwatches-heading-content p {
+    margin-bottom: 0;
+}
+
+
+/* =========================================================
+   VIEW ALL BUTTON
+   ========================================================= */
+
+.smartwatches-shop-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+
+    flex-shrink: 0;
+
+    padding: 8px 0;
+
+    background: transparent;
+    color: #0077CC;
+
+    border: none;
+    border-radius: 0;
+
+    text-decoration: none;
+
+    font-size: 14px;
+    font-weight: 800;
+
+    white-space: nowrap;
+
+    cursor: pointer;
+
+    transition: color 0.25s ease;
+}
+
+.smartwatches-shop-btn i {
+    font-size: 13px;
+
+    transition: transform 0.25s ease;
+}
+
+.smartwatches-shop-btn:hover {
+    background: transparent;
+    color: #F47721;
+}
+
+.smartwatches-shop-btn:hover i {
+    transform: translateX(4px);
+}
+
+
+/* =========================================================
+   SMARTWATCH CAROUSEL
+   ========================================================= */
+
+.smartwatches-section .carousel-container {
+    position: relative;
+    width: 100%;
+    min-width: 0;
+}
+
+.smartwatches-grid {
+    display: flex;
+    gap: 10px;
+
+    width: 100%;
+    min-width: 0;
+
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.smartwatches-grid::-webkit-scrollbar {
+    display: none;
+}
+
+.smartwatches-grid .smartwatch-card {
+    scroll-snap-align: start;
+}
+
+
+/* =========================================================
+   SMARTWATCH PRODUCT CARDS
+   ========================================================= */
+
+.smartwatch-card {
+    flex: 0 0 calc((100% - 40px) / 5);
+
+    min-width: 0;
+    min-height: 350px;
+
+    display: flex;
+    flex-direction: column;
+
+    padding: 9px;
+
+    background: #FFFFFF;
+    border: 1px solid #0077CC;
+
+    border-radius: 8px;
+
+    box-shadow: var(--card-shadow);
+
+    overflow: hidden;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.smartwatch-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--card-shadow-hover);
+}
+
+
+/* =========================================================
+   CLICKABLE PRODUCT CONTENT
+   ========================================================= */
+
+.smartwatches-section .smartwatch-product-link {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+
+    min-width: 0;
+
+    color: inherit;
+    text-decoration: none;
+}
+
+.smartwatches-section .smartwatch-product-link:focus-visible {
+    outline: 2px solid #0077CC;
+    outline-offset: 3px;
+
+    border-radius: 5px;
+}
+
+
+/* =========================================================
+   SMARTWATCH PRODUCT IMAGES
+   ========================================================= */
+
+.smartwatch-image {
+    width: 100%;
+    height: 150px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #FFFFFF;
+
+    border-radius: 6px;
+
+    overflow: hidden;
+}
+
+.smartwatch-image img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+
+    transition: transform 0.3s ease;
+}
+
+.smartwatch-card:hover .smartwatch-image img {
+    transform: scale(1.05);
+}
+
+
+/* =========================================================
+   SMARTWATCH PRODUCT DETAILS
+   ========================================================= */
+
+.smartwatch-details {
+    flex: 1;
+
+    display: flex;
+    flex-direction: column;
+
+    padding: 7px 3px 2px;
+}
+
+.smartwatch-details h3 {
+    min-height: 38px;
+
+    color: #17232D;
+
+    font-size: 18px;
+    font-weight: 800;
+
+    line-height: 1.25;
+
+    margin-bottom: 3px;
+}
+
+.smartwatch-description {
+    min-height: 34px;
+
+    color: #687780;
+
+    font-size: 14px;
+
+    line-height: 1.35;
+
+    margin-bottom: 3px;
+}
+
+
+/* =========================================================
+   SMARTWATCH PRICES
+   ========================================================= */
+
+.smartwatch-price {
+    margin-top: auto;
+    margin-bottom: 5px;
+
+    color: #F47721;
+
+    font-size: 17px;
+    font-weight: 800;
+}
+
+.smartwatch-price del {
+    font-weight: 600;
+
+    color: #89949B;
+
+    font-size: 12px;
+}
+
+
+/* =========================================================
+   SMARTWATCH DISCOUNT BADGE
+   ========================================================= */
+
+.smartwatch-price .discount-badge {
+    display: inline-block;
+
+    color: #FFFFFF;
+    background: #00b67a;
+
+    padding: 2px 6px;
+
+    border-radius: 4px;
+
+    font-size: 11px;
+    font-weight: 800;
+}
+
+
+/* =========================================================
+   SMARTWATCH AVAILABILITY
+   ========================================================= */
+
+.smartwatch-availability {
+    display: none;
+    align-items: center;
+
+    gap: 5px;
+
+    color: var(--success);
+
+    font-size: 11px;
+    font-weight: 700;
+
+    margin-bottom: 6px;
+}
+
+.smartwatch-availability span {
+    width: 7px;
+    height: 7px;
+
+    flex-shrink: 0;
+
+    border-radius: 50%;
+
+    background: var(--success);
+}
+
+
+/* =========================================================
+   SMARTWATCH ADD-TO-CART BUTTON
+   ========================================================= */
+
+.smartwatch-cart-btn {
+    display: none;
+
+    width: 100%;
+    height: 34px;
+
+    min-height: 34px;
+
+    margin-top: auto;
+
+    border: none;
+    border-radius: 5px;
+
+    background: var(--primary-blue);
+    color: #FFFFFF;
+
+    font-size: 12px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: background 0.25s ease;
+}
+
+.smartwatch-cart-btn:hover {
+    background: var(--dark-blue);
+}
+
+
+/* =========================================================
+   RESPONSIVE SMARTWATCH PRODUCT CARDS
+   ========================================================= */
+
+/* TABLETS */
+
+@media (max-width: 1024px) {
+
+    .smartwatch-card {
+        flex-basis: calc((100% - 30px) / 4);
+    }
+}
+
+
+/* SMALL TABLETS */
+
+@media (max-width: 768px) {
+
+    .smartwatch-card {
+        flex-basis: calc((100% - 20px) / 3);
+
+        min-height: 330px;
+    }
+
+    .smartwatch-image {
+        height: 135px;
+    }
+
+    .smartwatch-details h3 {
+        font-size: 16px;
+    }
+
+    .smartwatch-description {
+        font-size: 13px;
+    }
+}
+
+
+/* MOBILE PHONES */
+
+@media (max-width: 480px) {
+
+    .smartwatch-card {
+        flex-basis: calc((100% - 10px) / 2);
+
+        min-height: 315px;
+
+        padding: 8px;
+    }
+
+    .smartwatch-image {
+        height: 125px;
+    }
+
+    .smartwatch-details h3 {
+        font-size: 14px;
+
+        min-height: 35px;
+    }
+
+    .smartwatch-description {
+        font-size: 12px;
+
+        min-height: 32px;
+    }
+
+    .smartwatch-price {
+        font-size: 15px;
+    }
+
+    .smartwatch-price del {
+        font-size: 11px;
+    }
+
+    .smartwatch-price .discount-badge {
+        font-size: 10px;
+    }
+
+    .smartwatches-section .smartwatches-heading {
+        gap: 8px;
+    }
+
+    .smartwatches-shop-btn {
+        font-size: 13px;
+    }
+}
+
+
+
+
+
+/* =========================================================
+   33. CHARGERS & CABLES
+   ========================================================= */
+
+/* =========================================================
+   SECTION HEADING + VIEW ALL BUTTON
+   ========================================================= */
+
+.chargers-cables-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+.chargers-cables-heading-text {
+    min-width: 0;
+}
+
+/* Transparent View All button */
+.chargers-cables-view-all {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+
+    flex-shrink: 0;
+
+    padding: 8px 0;
+
+    background: transparent;
+    border: none;
+
+    color: #0077CC;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    text-decoration: none;
+    white-space: nowrap;
+
+    transition: color 0.25s ease;
+}
+
+/* Font Awesome arrow */
+.chargers-cables-view-all i {
+    font-size: 13px;
+
+    transition: transform 0.25s ease;
+}
+
+/* View All hover effect */
+.chargers-cables-view-all:hover {
+    color: #F47721;
+}
+
+.chargers-cables-view-all:hover i {
+    transform: translateX(4px);
+}
+
+
+/* =========================================================
+   ORIGINAL PRODUCT CARD STYLES
+   ========================================================= */
+
+.chargers-cables-card {
+
+    flex: 0 0 calc((100% - 40px) / 5);
+
+    min-width: 0;
+    min-height: 350px;
+
+    display: flex;
+    flex-direction: column;
+
+    padding: 9px;
+
+    background: #FFFFFF;
+    border: 1px solid #0077CC;
+
+    border-radius: 8px;
+
+    box-shadow: var(--card-shadow);
+
+    overflow: hidden;
+
+    /* Support clickable anchor cards */
+    color: inherit;
+    text-decoration: none;
+    cursor: pointer;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.chargers-cables-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--card-shadow-hover);
+}
+
+/* Preserve readable text on clickable cards */
+.chargers-cables-card h3,
+.chargers-cables-card p {
+    text-decoration: none;
+}
+
+
+/* =========================================================
+   PRODUCT IMAGE
+   ========================================================= */
+
+.chargers-cables-image {
+
+    width: 100%;
+    height: 150px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #FFFFFF;
+
+    border-radius: 6px;
+
+    overflow: hidden;
+}
+
+.chargers-cables-image img {
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+
+    transition: transform 0.3s ease;
+}
+
+.chargers-cables-card:hover .chargers-cables-image img {
+    transform: scale(1.05);
+}
+
+
+/* =========================================================
+   PRODUCT DETAILS
+   ========================================================= */
+
+.chargers-cables-details {
+
+    flex: 1;
+
+    display: flex;
+    flex-direction: column;
+
+    padding: 7px 3px 2px;
+}
+
+.chargers-cables-details h3 {
+
+    min-height: 38px;
+
+    color: #17232d;
+
+    font-size: 18px;
+    font-weight: 800;
+
+    line-height: 1.25;
+
+    margin-bottom: 3px;
+}
+
+
+/* =========================================================
+   PRODUCT DESCRIPTION
+   ========================================================= */
+
+.chargers-cables-description {
+
+    min-height: 34px;
+
+    color: #687780;
+
+    font-size: 14px;
+
+    line-height: 1.35;
+
+    margin-bottom: 3px;
+}
+
+
+/* =========================================================
+   PRODUCT PRICE
+   ========================================================= */
+
+.chargers-cables-price {
+
+    margin-top: auto;
+    margin-bottom: 5px;
+
+    color: #f47721;
+
+    font-size: 17px;
+    font-weight: 800;
+}
+
+.chargers-cables-price del {
+    font-size: 12px;
+    font-weight: 600;
+    color: #89949b;
+}
+
+
+/* =========================================================
+   PRODUCT AVAILABILITY
+   ========================================================= */
+
+.chargers-cables-availability {
+
+    display: none;
+    align-items: center;
+
+    gap: 5px;
+
+    color: var(--success);
+
+    font-size: 11px;
+    font-weight: 700;
+
+    margin-bottom: 6px;
+}
+
+.chargers-cables-availability span {
+
+    width: 7px;
+    height: 7px;
+
+    border-radius: 50%;
+
+    background: var(--success);
+}
+
+
+/* =========================================================
+   ADD TO CART BUTTON
+   ========================================================= */
+
+.chargers-cables-cart-btn {
+
+    display: none;
+    width: 100%;
+    height: 34px;
+
+    min-height: 34px;
+
+    border: none;
+    border-radius: 5px;
+
+    background: var(--primary-blue);
+    color: #FFFFFF;
+
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.chargers-cables-cart-btn:hover {
+    background: var(--dark-blue);
+}
+
+
+/* =========================================================
+   34. YOU MAY ALSO LIKE
+   ========================================================= */
+
+
+/* =========================================================
+   SECTION HEADING + VIEW ALL BUTTON
+   ========================================================= */
+
+.recommended-products-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 15px;
+    width: 100%;
+}
+
+.recommended-products-header .section-heading {
+    margin-bottom: 0;
+}
+
+
+/* =========================================================
+   TRANSPARENT VIEW ALL BUTTON
+   ========================================================= */
+
+.recommended-view-all {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+    padding: 8px 0;
+
+    background: transparent;
+    border: none;
+
+    color: #0077CC;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    text-decoration: none;
+    white-space: nowrap;
+
+    transition: color 0.25s ease;
+}
+
+.recommended-view-all i {
+    font-size: 13px;
+
+    transition: transform 0.25s ease;
+}
+
+.recommended-view-all:hover {
+    color: #F47721;
+}
+
+.recommended-view-all:hover i {
+    transform: translateX(4px);
+}
+
+
+/* =========================================================
+   PRODUCT CARDS
+   ========================================================= */
+
+.recommended-product-card {
+
+    flex: 0 0 calc((100% - 40px) / 5);
+
+    min-width: 0;
+    min-height: 350px;
+
+    display: flex;
+    flex-direction: column;
+
+    padding: 9px;
+
+    box-sizing: border-box;
+
+    background: #FFFFFF;
+    border: 1px solid #0077CC;
+
+    border-radius: 8px;
+
+    box-shadow: var(--card-shadow);
+
+    overflow: hidden;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.recommended-product-card:hover {
+    transform: translateY(-4px);
+
+    box-shadow: var(--card-shadow-hover);
+}
+
+
+/* =========================================================
+   CLICKABLE PRODUCT LINKS
+   ========================================================= */
+
+.recommended-product-link {
+
+    display: flex;
+    flex: 1;
+
+    flex-direction: column;
+
+    min-width: 0;
+
+    color: inherit;
+    text-decoration: none;
+
+    cursor: pointer;
+}
+
+.recommended-product-link:focus-visible {
+    outline: 2px solid #0077CC;
+    outline-offset: 3px;
+}
+
+
+/* =========================================================
+   PRODUCT IMAGES
+   ========================================================= */
+
+.recommended-product-image {
+
+    width: 100%;
+    height: 150px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #FFFFFF;
+
+    border-radius: 6px;
+
+    overflow: hidden;
+}
+
+.recommended-product-image img {
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+
+    transition: transform 0.3s ease;
+}
+
+.recommended-product-card:hover
+.recommended-product-image img {
+    transform: scale(1.05);
+}
+
+
+/* =========================================================
+   PRODUCT DETAILS
+   ========================================================= */
+
+.recommended-product-details {
+
+    flex: 1;
+
+    display: flex;
+    flex-direction: column;
+
+    padding: 7px 3px 2px;
+}
+
+.recommended-product-details h3 {
+
+    min-height: 38px;
+
+    color: #17232d;
+
+    font-size: 18px;
+    font-weight: 800;
+
+    line-height: 1.25;
+
+    margin-bottom: 3px;
+}
+
+
+/* =========================================================
+   PRODUCT DESCRIPTION
+   ========================================================= */
+
+.recommended-product-details .product-description {
+
+    min-height: 34px;
+
+    color: #687780;
+
+    font-size: 14px;
+
+    line-height: 1.35;
+
+    margin-bottom: 3px;
+}
+
+
+/* =========================================================
+   PRODUCT PRICE
+   ========================================================= */
+
+.recommended-product-details .product-price {
+
+    color: #F47721;
+
+    font-size: 17px;
+    font-weight: 800;
+
+    margin-top: auto;
+    margin-bottom: 5px;
+}
+
+.recommended-product-details .product-price strong del {
+
+    color: #89949B;
+
+    font-size: 12px;
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   PRODUCT AVAILABILITY
+   ========================================================= */
+
+.product-availability {
+
+    display: none;
+    align-items: center;
+
+    gap: 5px;
+
+    color: var(--success);
+
+    font-size: 11px;
+    font-weight: 700;
+
+    margin-bottom: 6px;
+}
+
+.product-availability span {
+
+    width: 7px;
+    height: 7px;
+
+    border-radius: 50%;
+
+    background: var(--success);
+}
+
+
+/* =========================================================
+   ADD TO CART BUTTON
+   ========================================================= */
+
+.add-to-cart-btn {
+
+    display: none;
+
+    width: 100%;
+    height: 34px;
+
+    min-height: 34px;
+
+    border: none;
+    border-radius: 5px;
+
+    background: var(--primary-blue);
+    color: #FFFFFF;
+
+    font-size: 12px;
+    font-weight: 700;
+
+    cursor: pointer;
+}
+
+.add-to-cart-btn:hover {
+    background: var(--dark-blue);
+}
+
+
+/* =========================================================
+   MOBILE RESPONSIVENESS
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    .recommended-products-header {
+        gap: 10px;
+    }
+
+    .recommended-view-all {
+        font-size: 12px;
+    }
+}
+
+
+
+/* =========================================================
+   35. FAQ
+   ========================================================= */
+
+.faq-section {
+
+    width: 100%;
+
+    margin-top: 20px;
+
+    padding: 35px 20px;
+
+    background: #232323;
+}
+
+.faq-container {
+
+    width: 100%;
+    max-width: 1100px;
+
+    margin: auto;
+}
+
+.faq-container h2 {
+
+    text-align: left;
+
+    color: white;
+
+    font-size: 20px;
+    font-weight: 700;
+
+    margin-bottom: 20px;
+}
+
+.faq-content {
+
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 12px;
+}
+
+.faq-item {
+
+    padding: 16px;
+
+    background: #232323;
+
+    border: 1px solid var(--border);
+
+    border-radius: 8px;
+}
+
+.faq-item h3 {
+
+    color: white;
+
+    font-size: 16px;
+    font-weight: 700;
+
+    margin-bottom: 5px;
+}
+
+.faq-item p {
+
+    color: white;
+
+    font-size: 14px;
+
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   36. SERVICE BENEFITS
+   ========================================================= */
+
+.service-benefits {
+
+    width: 100%;
+
+    padding: 25px 20px;
+
+    background: #232323;
+}
+
+.benefits-container {
+
+    width: 100%;
+    max-width: 1200px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 20px;
+}
+
+.benefit-item {
+    text-align: center;
+}
+
+.benefit-icon {
+
+    width: 45px;
+    height: 45px;
+
+    margin: 0 auto 8px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #0077CC;
+
+    font-size: 25px;
+}
+
+.benefit-item h3 {
+
+    color: white;
+
+    font-size: 15px;
+    font-weight: 800;
+
+    margin-bottom: 4px;
+}
+
+.benefit-item p {
+
+    color: white;
+
+    font-size: 14px;
+}
+
+
+
+
+
+/* =========================================================
+   40. FOOTER
+   ========================================================= */
+
+.site-footer {
+
+    width: 100%;
+
+    padding: 20px;
+
+    background: #111111;
+    color: #FFFFFF;
+
+    text-align: center;
+}
+
+.site-footer p {
+
+    color: #FFFFFF;
+
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   41. TABLET RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 1100px) {
+
+    .navbar-menu {
+        gap: 14px;
+    }
+
+    .top-selling-card,
+    .phone-cover-card,
+    .screen-protector-card,
+    .product-card,
+    .smartwatch-card,
+    .chargers-cables-card,
+    .recommended-product-card {
+
+        flex: 0 0 calc((100% - 30px) / 4);
+    }
+
+    .shop-products {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .hero-content h1 {
+        font-size: 36px;
+    }
+}
+
+
+/* =========================================================
+   42. MOBILE RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+    body {
+        padding-top: 68px;
+    }
+
+    /* NAVBAR */
+
+    .site-navbar {
+        height: 68px;
+    }
+
+    .navbar-container {
+        width: 94%;
+        height: 68px;
+
+        gap: 8px;
+    }
+
+    .navbar-logo img {
+
+        width: 50px;
+        height: 50px;
+    }
+
+    .navbar-search {
+        height: 38px;
+    }
+
+    .navbar-search input {
+
+        min-width: 0;
+
+        padding: 0 10px;
+
+        font-size: 12px;
+    }
+
+    .navbar-search button {
+        width: 42px;
+    }
+
+    .navbar-menu {
+
+        display: none;
+
+        position: absolute;
+
+        top: 68px;
+        left: 0;
+
+        width: 100%;
+
+        padding: 15px 20px;
+
+        background: #222222;
+
+        flex-direction: column;
+
+        align-items: stretch;
+
+        gap: 4px;
+    }
+
+    .navbar-menu.active {
+        display: flex;
+    }
+
+    .navbar-menu a {
+
+        padding: 11px 8px;
+
+        color: #FFFFFF;
+
+        border-bottom: 1px solid rgba(255,255,255,0.10);
+    }
+
+    .navbar-menu a::after {
+        display: none;
+    }
+
+    .navbar-cart {
+        justify-content: center;
+    }
+
+    .mobile-menu-button {
+        display: block;
+    }
+
+
+    /* HERO */
+
+    .hero {
+
+        width: 94%;
+        height: 300px;
+
+        margin: 14px auto 10px;
+    }
+
+    .hero-content {
+
+        left: 7%;
+
+        max-width: 65%;
+    }
+
+    .hero-content h1 {
+        font-size: 28px;
+    }
+
+    .hero-content p {
+        font-size: 13px;
+    }
+
+
+    /* SECTIONS */
+
+    .top-selling-section,
+    .new-arrivals-section,
+    .screen-protectors-section,
+    .headphones-section,
+    .smartwatches-section,
+    .chargers-cables-section,
+    .you-may-also-like,
+    .phone-covers-section {
+
+        width: 100%;
+
+        margin-top: 10px;
+        margin-bottom: 10px;
+
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+
+
+    /* HEADINGS */
+
+    .top-selling-header h2,
+    .new-arrivals-header h2,
+    .phone-covers-header h2,
+    .section-heading h2,
+    .smartwatches-heading h2,
+    .chargers-cables-heading h2,
+    .screen-protectors-heading h2 {
+
+        font-size: 25px;
+    }
+
+    .top-selling-header p,
+    .new-arrivals-header p,
+    .phone-covers-header p,
+    .section-heading p,
+    .smartwatches-heading p,
+    .chargers-cables-heading p,
+    .screen-protectors-heading p {
+
+        font-size: 13px;
+    }
+
+
+    /* CONTAINERS */
+
+    .top-selling-slider,
+    .new-arrivals-slider,
+    .carousel-container {
+
+        padding-left: 30px;
+        padding-right: 30px;
+
+        padding-top: 12px;
+        padding-bottom: 12px;
+    }
+
+
+    /* TWO CARDS PER VIEW */
+
+    .top-selling-card,
+    .phone-cover-card,
+    .screen-protector-card,
+    .product-card,
+    .smartwatch-card,
+    .chargers-cables-card,
+    .recommended-product-card {
+
+        flex: 0 0 calc((100% - 10px) / 2);
+
+        min-height: 330px;
+    }
+
+
+    .new-arrival-card {
+        flex: 0 0 180px;
+
+        min-height: 330px;
+    }
+
+
+    /* MOBILE IMAGES */
+
+    .top-selling-image,
+    .new-arrival-image,
+    .phone-cover-image,
+    .screen-protector-image,
+    .product-image,
+    .smartwatch-image,
+    .chargers-cables-image,
+    .recommended-product-image {
+
+        height: 135px;
+    }
+
+
+    /* MOBILE TEXT */
+
+    .top-selling-details h3,
+    .new-arrival-details h3,
+    .phone-cover-details h3,
+    .screen-protector-details h3,
+    .product-info h3,
+    .smartwatch-details h3,
+    .chargers-cables-details h3,
+    .recommended-product-details h3 {
+
+        font-size: 14px;
+    }
+
+    .top-selling-details p,
+    .new-arrival-details p,
+    .phone-cover-details p,
+    .screen-protector-description,
+    .product-description,
+    .smartwatch-description,
+    .chargers-cables-description,
+    .recommended-product-details .product-description {
+
+        font-size: 11px;
+    }
+
+
+    /* MOBILE PRICES */
+
+    .product-price,
+    .screen-protector-price,
+    .smartwatch-price,
+    .chargers-cables-price {
+
+        font-size: 15px;
+    }
+
+    .product-price strong {
+
+        font-size: 15px;
+    }
+
+    .product-price del {
+
+        font-size: 12px;
+    }
+
+
+    /* MOBILE ARROWS */
+
+    .carousel-arrow,
+    .carousel-button {
+
+        width: 32px;
+        height: 32px;
+
+        font-size: 14px;
+    }
+
+    .carousel-prev {
+        left: 4px;
+    }
+
+    .carousel-next {
+        right: 4px;
+    }
+
+
+    /* FAQ */
+
+    .faq-section {
+        padding: 28px 14px;
+    }
+
+    .faq-container h2 {
+        font-size: 25px;
+    }
+
+    .faq-content {
+        grid-template-columns: 1fr;
+    }
+
+
+    /* BENEFITS */
+
+    .benefits-container {
+
+        grid-template-columns: repeat(2, 1fr);
+
+        gap: 20px 12px;
+    }
+
+
+    /* ABOUT */
+
+    .about-container,
+    .contact-container {
+
+        grid-template-columns: 1fr;
+
+        gap: 25px;
+    }
+
+    .about-text h2,
+    .contact-section h2 {
+
+        font-size: 28px;
+    }
+
+    .about-features {
+        grid-template-columns: 1fr;
+    }
+
+    .about-highlights {
+        grid-template-columns: 1fr;
+    }
+
+
+    /* SHOP */
+
+    .shop-products {
+
+        grid-template-columns: repeat(2, 1fr);
+
+        gap: 12px;
+    }
+
+    .shop-product-image {
+        height: 170px;
+    }
+}
+
+
+/* =========================================================
+   43. SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 480px) {
+
+    .navbar-search input {
+        font-size: 11px;
+    }
+
+    .hero {
+
+        height: 250px;
+    }
+
+    .hero-content {
+
+        max-width: 70%;
+    }
+
+    .hero-content h1 {
+
+        font-size: 23px;
+    }
+
+    .hero-content p {
+
+        font-size: 11px;
+
+        margin-bottom: 12px;
+    }
+
+    .hero-button {
+
+        padding: 8px 13px;
+
+        font-size: 11px;
+    }
+
+
+    /* ONE PRODUCT PER VIEW */
+
+    .top-selling-card,
+    .phone-cover-card,
+    .screen-protector-card,
+    .product-card,
+    .smartwatch-card,
+    .chargers-cables-card,
+    .recommended-product-card {
+
+        flex: 0 0 100%;
+    }
+
+    .new-arrival-card {
+        flex: 0 0 175px;
+    }
+
+
+    /* PRODUCT IMAGE */
+
+    .top-selling-image,
+    .new-arrival-image,
+    .phone-cover-image,
+    .screen-protector-image,
+    .product-image,
+    .smartwatch-image,
+    .chargers-cables-image,
+    .recommended-product-image {
+
+        height: 145px;
+    }
+
+
+    /* VIEW ALL BUTTONS */
+
+    .top-selling-shop-btn,
+    .new-arrivals-shop-btn {
+
+        float: none;
+
+        display: inline-block;
+
+        margin-top: 8px;
+    }
+
+
+    /* BENEFITS */
+
+    .benefits-container {
+
+        grid-template-columns: 1fr;
+    }
+
+
+    /* SHOP */
+
+    .shop-products {
+
+        grid-template-columns: 1fr;
+    }
+
+    .shop-search {
+
+        flex-direction: column;
+    }
+
+    .shop-filter {
+
+        height: 40px;
+    }
+}
+
+
+/* =========================================================
+   GLOBAL SEARCH RESULTS
+========================================================= */
+
+.global-search-results {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto 25px;
+    padding: 24px 20px;
+    box-sizing: border-box;
+    background: #ffffff;
+    position: relative;
+    z-index: 5;
+    scroll-margin-top: 90px;
+}
+
+.global-search-results[hidden] {
+    display: none !important;
+}
+
+.global-search-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 22px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #d8ebf2;
+}
+
+.global-search-heading-text h2 {
+    margin: 5px 0;
+    color: #005fa3;
+    font-size: 28px;
+    font-weight: 800;
+}
+
+.global-search-eyebrow {
+    color: #ff9800;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+}
+
+.global-search-message {
+    margin: 6px 0 0;
+    color: #555555;
+    font-size: 14px;
+}
+
+.global-search-clear {
+    flex-shrink: 0;
+    padding: 11px 18px;
+    border: none;
+    border-radius: 8px;
+    background: #0077cc;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    transition:
+        background 0.25s ease,
+        transform 0.25s ease;
+}
+
+.global-search-clear:hover {
+    background: #005fa3;
+    transform: translateY(-2px);
+}
+
+/* Independent grid: never uses carousel tracks */
+
+.global-search-grid {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 20px;
+    width: 100%;
+}
+
+/* Individual search product cards */
+
+.global-search-card {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    min-height: 350px;
+    padding: 9px;
+    overflow: hidden;
+    background: #ffffff;
+    border: 1px solid #0077CC;
+    border-radius: 8px;
+    box-shadow: var(--card-shadow);
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        border-color 0.25s ease;
+}
+
+.global-search-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--card-shadow-hover);
+}
+
+.global-search-product-link {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    color: inherit;
+    text-decoration: none;
+}
+
+#globalSearchResults .global-search-product-link:focus-visible {
+    outline: 2px solid #0077CC;
+    outline-offset: 3px;
+    border-radius: 5px;
+}
+
+.global-search-image-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 150px;
+    padding: 0;
+    box-sizing: border-box;
+    background: #ffffff;
+    border-radius: 6px;
+}
+
+.global-search-image-wrapper img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.global-search-card:hover
+.global-search-image-wrapper img {
+    transform: scale(1.05);
+}
+
+.global-search-image-placeholder {
+    color: #777777;
+    font-size: 12px;
+    text-align: center;
+}
+
+.global-search-product-details {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 7px 3px 2px;
+}
+
+.global-search-product-details h3 {
+    min-height: 38px;
+    margin: 0 0 3px;
+    color: #17232D;
+    font-size: 18px;
+    font-weight: 800;
+    line-height: 1.25;
+}
+
+.global-search-category {
+    margin: 0 0 10px;
+    color: #777777;
+    font-size: 12px;
+    line-height: 1.4;
+}
+
+.global-search-price {
+    margin: 0 0 12px;
+    color: #005fa3;
+    font-size: 17px;
+    font-weight: 800;
+}
+
+.global-search-stock {
+    display: inline-block;
+    margin-bottom: 14px;
+    padding: 5px 9px;
+    border-radius: 5px;
+    font-size: 11px;
+    font-weight: 800;
+}
+
+.global-search-stock.in-stock {
+    background: #e5f8eb;
+    color: #16803c;
+}
+
+.global-search-stock.out-of-stock {
+    background: #ffe8e8;
+    color: #c62828;
+}
+
+.global-search-view-button {
+    display: block;
+    width: 100%;
+    margin-top: auto;
+    padding: 10px;
+    box-sizing: border-box;
+    border-radius: 7px;
+    background: #0077cc;
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: 800;
+    text-align: center;
+    transition: background 0.25s ease;
+}
+
+.global-search-card:hover
+.global-search-view-button {
+    background: #005fa3;
+}
+
+.global-search-empty {
+    grid-column: 1 / -1;
+    padding: 45px 20px;
+    border-radius: 12px;
+    background: #f4f9fc;
+    color: #555555;
+    text-align: center;
+}
+
+.global-search-empty i {
+    color: #0077cc;
+    font-size: 38px;
+}
+
+.global-search-empty h3 {
+    margin: 14px 0 8px;
+    color: #005fa3;
+    font-size: 22px;
+}
+
+.global-search-empty p {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+/* Tablet */
+
+@media (max-width: 1100px) {
+
+    .global-search-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 16px;
+    }
+
+}
+
+/* Small tablets */
+
+@media (max-width: 800px) {
+
+    .global-search-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 14px;
+    }
+
+    .global-search-results {
+        padding: 20px 15px;
+    }
+
+    .global-search-heading-text h2 {
+        font-size: 24px;
+    }
+
+}
+
+/* Mobile */
+
+@media (max-width: 560px) {
+
+    .global-search-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+    }
+
+    .global-search-heading {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .global-search-clear {
+        width: 100%;
+    }
+
+}
+
+/* Extra-small mobile */
+
+@media (max-width: 350px) {
+
+    .global-search-grid {
+        gap: 8px;
+    }
+
+}
+
+
+
+/* =========================================================
+   END OF AM ELECTRONICS COMPLETE CSS
+   ========================================================= */
+
+/* Keep Top Selling card prices stacked and bottom-aligned. */
+.top-selling-price {
+    min-height: 68px;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: flex-start;
+    justify-content: flex-end;
+    gap: 2px;
+}
+
+.new-arrival-price {
+    min-height: 68px;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: flex-start;
+    justify-content: flex-end;
+    gap: 2px;
+}
+
+
+/* Keep Top Selling cards the same size and detail rhythm as Smartwatches. */
+.top-selling-card {
+    min-height: 350px;
+    border: none;
+}
+.top-selling-price .discount-badge {
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 11px;
+    line-height: 1.3;
+}
+@media (max-width: 1024px) {
+    .top-selling-card { flex-basis: calc((100% - 30px) / 4); }
+}
+@media (max-width: 768px) {
+    .top-selling-card { flex-basis: calc((100% - 20px) / 3); min-height: 330px; }
+    .top-selling-image { height: 135px; }
+    .top-selling-details h3 { font-size: 16px; }
+    .top-selling-details p { min-height: 32px; font-size: 13px; }
+}
+@media (max-width: 480px) {
+    .top-selling-card { flex-basis: calc((100% - 10px) / 2); min-height: 315px; padding: 8px; }
+    .top-selling-image { height: 125px; }
+    .top-selling-details h3 { min-height: 35px; font-size: 14px; }
+    .top-selling-details p { min-height: 32px; font-size: 12px; }
+    .top-selling-price { font-size: 15px; }
+    .top-selling-price del { font-size: 11px; }
+    .top-selling-price .discount-badge { font-size: 10px; }
+}
+
+/* Blue outline for every card in the Phone Covers section. */
+.phone-covers-grid .phone-cover-card {
+    border: 1px solid #0077cc;
+}
+
+/* Match the checkout page background and remove outlines from homepage cards. */
+body {
+    background: #F5F9FC;
+}
+
+.top-selling-card,
+.phone-cover-card,
+.phone-covers-grid .phone-cover-card,
+.new-arrival-card,
+.screen-protector-card,
+.headphones-section .product-card,
+.smartwatch-card,
+.chargers-cables-card,
+.recommended-product-card,
+.global-search-card {
+    border: none;
+    box-shadow: 0 5px 18px rgba(0, 65, 115, 0.12);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.top-selling-card:hover,
+.phone-cover-card:hover,
+.new-arrival-card:hover,
+.screen-protector-card:hover,
+.headphones-section .product-card:hover,
+.smartwatch-card:hover,
+.chargers-cables-card:hover,
+.recommended-product-card:hover,
+.global-search-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 24px rgba(0, 65, 115, 0.2);
+}
+
+.top-selling-image,
+.phone-cover-image,
+.new-arrival-image,
+.screen-protector-image,
+.headphones-section .product-image,
+.smartwatch-image,
+.chargers-cables-image,
+.recommended-product-image {
+    background: #FFFFFF;
+}
+
+.navbar-logo {
+    gap: 10px;
+}
+
+.navbar-logo img {
+    width: 58px;
+    height: 58px;
+}
+
+.navbar-brand-wordmark {
+    display: flex;
+    flex-direction: column;
+    color: #FFFFFF;
+    line-height: 1.15;
+    white-space: nowrap;
+}
+
+.navbar-brand-wordmark strong {
+    font-size: 17px;
+    font-weight: 800;
+}
+
+.navbar-brand-wordmark small {
+    margin-top: 3px;
+    color: #F6B36D;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+}
+
+@media (max-width: 1100px) {
+    .navbar-brand-wordmark { display: none; }
+}
+
+@media (max-width: 850px) {
+    .navbar-logo img { width: 50px; height: 50px; }
+}
+
+@media (max-width: 480px) {
+    .navbar-logo img { width: 45px; height: 45px; }
+}
+
+/* Keep the category rows horizontally scrollable without the carousel frame. */
+.phone-covers-section .carousel-container,
+.screen-protectors-section .carousel-container,
+.headphones-section .carousel-container,
+.smartwatches-section .carousel-container,
+.chargers-cables-section .carousel-container,
+.you-may-also-like .carousel-container {
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+    overflow: visible;
+}
+
+/* Advance one complete card per arrow press and snap cleanly to it. */
+.top-selling-track,
+.phone-covers-grid,
+.new-arrivals-track,
+.screen-protectors-section .product-carousel,
+.headphones-section .products-container,
+.smartwatches-grid,
+.chargers-cables-grid,
+.recommended-products-grid {
+    scroll-snap-type: x mandatory;
+}
+
+.top-selling-card,
+.phone-cover-card,
+.new-arrival-card,
+.screen-protector-card,
+.headphones-section .products-container .product-card,
+.smartwatch-card,
+.chargers-cables-card,
+.recommended-product-card {
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+}
+
+/* Match New Arrivals cards to Top Selling. */
+.new-arrival-card {
+    height: 350px;
+    min-height: 350px;
+    padding: 9px;
+}
+
+.new-arrival-price {
+    width: 100%;
+    min-height: 68px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: flex-start;
+    justify-content: flex-end;
+    margin-top: auto;
+    padding-top: 0;
+    margin-bottom: 0;
+    gap: 2px;
+    text-align: left;
+}
+
+.new-arrival-details p {
+    margin-bottom: 2px;
+}
+
+.new-arrival-price .discount-badge {
+    margin: 0;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 11px;
+    line-height: 1.3;
+}
+
+.new-arrivals-slider {
+    padding: 13px 34px;
+    border-radius: 15px;
+}
+
+.new-arrivals-track {
+    padding: 0;
+}
+
+.new-arrivals-arrow {
+    width: 34px;
+    height: 34px;
+    border: 2px solid #FFFFFF;
+}
+
+.new-arrivals-prev { left: 4px; }
+.new-arrivals-next { right: 4px; }
+
+@media (max-width: 900px) {
+    .new-arrival-card { height: 330px; min-height: 330px; }
+    .new-arrival-image { height: 135px; }
+}
+
+@media (max-width: 600px) {
+    .new-arrivals-slider { padding: 10px 30px; }
+    .new-arrival-card { height: 330px; min-height: 330px; }
+    .new-arrivals-arrow { width: 29px; height: 29px; }
+    .new-arrivals-prev { left: 3px; }
+    .new-arrivals-next { right: 3px; }
+}
+
+@media (max-width: 480px) {
+    .new-arrival-card { height: 315px; min-height: 315px; padding: 8px; }
+    .new-arrival-image { height: 125px; }
+}
+
+.demo-preview-card { position: relative; }
+.demo-preview-badge,
+.shop-demo-badge {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    z-index: 8;
+    padding: 4px 7px;
+    border-radius: 5px;
+    background: #374151;
+    color: #fff;
+    font: 700 9px/1.2 Arial, sans-serif;
+    letter-spacing: .04em;
+    pointer-events: none;
+}

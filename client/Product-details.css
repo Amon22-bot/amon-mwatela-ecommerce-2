@@ -1,0 +1,334 @@
+/* --- Reset & Base Styles --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #F5F9FC;
+    color: #333;
+    line-height: 1.6;
+    padding: 40px 20px;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+}
+
+/* --- Layout Structure --- */
+.product-details {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+/* Responsive Desktop Split Layout */
+@media (min-width: 768px) {
+    .product-details {
+        flex-direction: row;
+    }
+    .product-gallery, .product-info {
+        flex: 1;
+    }
+}
+
+/* --- Left Column: Media Gallery --- */
+.product-gallery {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.main-img-container {
+    width: 100%;
+    background-color: #f5f5f5;
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.main-img-container img {
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.main-img-container img:hover {
+    transform: scale(1.05);
+}
+
+.thumbnail-row {
+    display: flex;
+    gap: 10px;
+}
+
+.thumb {
+    width: 70px;
+    height: 70px;
+    border: 2px solid transparent;
+    border-radius: 6px;
+    cursor: pointer;
+    object-fit: cover;
+    background-color: #f5f5f5;
+    transition: border-color 0.2s ease;
+}
+
+.thumb.active, .thumb:hover {
+    border-color: #0071e3;
+}
+
+/* --- Right Column: Product Information --- */
+.product-info {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.brand-category {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #777;
+    font-weight: 600;
+}
+
+.product-title {
+    font-size: 2rem;
+    color: #111;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.rating-stock {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 0.9rem;
+}
+
+.stars {
+    color: #ffcc00;
+}
+
+.stock-status {
+    color: #2e7d32;
+    font-weight: 600;
+    background-color: #e8f5e9;
+    padding: 2px 8px;
+    border-radius: 4px;
+}
+
+.price-box {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 3px;
+    margin: 5px 0 12px;
+}
+
+.price-box [hidden] {
+    display: none !important;
+}
+
+.current-price {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #f47721;
+}
+
+.original-price {
+    font-size: 1.2rem;
+    color: #999;
+    text-decoration: line-through;
+}
+
+.description {
+    color: #555;
+    font-size: 1rem;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 20px;
+}
+
+/* Variants & Purchasing Options */
+.options-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.options-label {
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.color-swatches {
+    display: flex;
+    gap: 10px;
+}
+
+.swatch {
+    width: 32px;
+    height: 32px;
+    box-sizing: border-box;
+    padding: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    overflow-wrap: anywhere;
+    text-align: center;
+    font-size: 7px;
+    line-height: 1;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    outline: 1px solid #ccc;
+    cursor: pointer;
+}
+
+.swatch.selected {
+    outline: 2px solid #0071e3;
+}
+
+.purchase-controls {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.quantity-selector {
+    display: flex;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.qty-btn {
+    background: #eee;
+    border: none;
+    width: 40px;
+    height: 44px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.qty-btn:hover {
+    background: #ddd;
+}
+
+.qty-input {
+    width: 50px;
+    height: 44px;
+    text-align: center;
+    border: none;
+    border-left: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.btn-add-cart {
+    flex: 1;
+    height: 44px;
+    background-color: #0071e3;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.btn-add-cart:hover {
+    background-color: #005bb5;
+}
+
+/* --- Bottom Section: Tech Specs --- */
+.product-specs {
+    margin-top: 40px;
+    border-top: 1px solid #eee;
+    padding-top: 30px;
+}
+
+.specs-title {
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.specs-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+}
+
+.specs-table tr {
+    border-bottom: 1px solid #eee;
+}
+
+.specs-table td {
+    padding: 10px 0;
+}
+
+.spec-label {
+    font-weight: 600;
+    color: #666;
+    width: 30%;
+}
+
+.spec-value {
+    color: #333;
+}
+
+.product-extra-info { margin-top: 24px; color: #333; }
+.product-extra-info section { margin-top: 22px; }
+.product-extra-info h3 { margin: 0 0 10px; color: #173b68; font-size: 1.05rem; }
+.product-extra-info ul { margin: 0; padding-left: 22px; line-height: 1.8; }
+.details-verified-badge { display: inline-block; padding: 8px 12px; border-radius: 6px; color: #075b35; background: #e8f6ee; font-weight: 600; }
+
+/* Match the old price, discount, current price order used on home cards. */
+.old-price {
+    color: #89949b;
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-decoration: line-through;
+}
+
+.detail-discount-badge {
+    display: inline-block;
+    width: fit-content;
+    padding: 4px 10px;
+    border-radius: 5px;
+    background: #00b67a;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.price-box .current-price {
+    color: #f47721;
+}
+/* Shared black footer matching the Home page. */
+.site-footer {
+    width: 100%;
+    padding: 20px;
+    background: #111111;
+    color: #ffffff;
+    text-align: center;
+}
+.site-footer p {
+    margin: 0;
+    color: #ffffff;
+    font-size: 13px;
+}
