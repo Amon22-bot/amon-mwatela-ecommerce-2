@@ -35,7 +35,7 @@ function displayProducts(productsToRender, container) {
         productCard.setAttribute("role", "link");
         productCard.setAttribute("aria-label", `View details for ${product.title}`);
         const openProduct = () => {
-            window.location.href = `Product-details.html?id=${encodeURIComponent(product._id)}`;
+            window.location.href = `product-details.html?id=${encodeURIComponent(product._id)}`;
         };
         productCard.addEventListener("click", openProduct);
         productCard.addEventListener("keydown", (event) => {
@@ -182,6 +182,3 @@ function setupControls(allProducts, container) {
         });
     }
 }
-
-
-

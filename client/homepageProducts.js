@@ -84,8 +84,7 @@ function updateHomepageCard(card, product, config) {
             card.appendChild(badge);
         }
     }
-    const productUrl = `Product-details.html?id=${encodeURIComponent(product._id)}`;
-    // Some homepage templates are anchors themselves, so update the root link too.
+    const productUrl = `product-details.html?id=${encodeURIComponent(product._id)}`;
     if (card.tagName === "A") {
         card.href = productUrl;
     }
