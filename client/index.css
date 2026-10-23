@@ -2633,7 +2633,7 @@ button {
 
 .screen-protectors-section .screen-protectors-heading h2 {
     margin: 0;
-    color: #0077cc;
+    color: #000000;
     font-size: 25px;
     font-weight: 800;
     line-height: 1.2;
@@ -2655,7 +2655,7 @@ button {
     flex-shrink: 0;
 
     background: transparent;
-    color: #0077CC;
+    color: #000000;
     border: none;
 
     text-decoration: none;
