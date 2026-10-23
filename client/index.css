@@ -5594,7 +5594,8 @@ body {
     width: 34px;
     height: 34px;
     border: 1px solid #000000;
-    background: black;
+    background: white;
+    color: black;
 }
 
 .new-arrivals-prev { left: 4px; }
