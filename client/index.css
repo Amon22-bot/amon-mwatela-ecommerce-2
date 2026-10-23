@@ -5439,8 +5439,8 @@ body {
 .chargers-cables-card,
 .recommended-product-card,
 .global-search-card {
-    border: none;
-    box-shadow: 0 5px 18px rgba(0, 65, 115, 0.12);
+    border: 1px black;
+    box-shadow: none;
     transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
