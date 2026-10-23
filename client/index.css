@@ -2109,7 +2109,7 @@ button {
 
 .new-arrivals-header h2 {
     margin: 0 0 5px;
-    color: #0077cc;
+    color: #000000;
     font-size: 25px;
     font-weight: 800;
     line-height: 1.2;
@@ -2137,7 +2137,7 @@ button {
     padding: 8px 0;
 
     background: transparent;
-    color: #0077CC;
+    color: #000000;
 
     border: none;
     border-radius: 0;
@@ -2178,7 +2178,7 @@ button {
     /* Reduced horizontal padding from 40px to 25px */
     padding: 13px 25px;
 
-    background: #F47721;
+    background: #d2042d;
     border-radius: 20px;
 
     overflow: hidden;
