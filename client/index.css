@@ -1351,7 +1351,7 @@ button {
     font-size: 25px;
     font-weight: 800;
 
-    color: #0077CC;
+    color: #000000;
 
     margin: 0;
 }
@@ -1391,7 +1391,7 @@ button {
     border: none;
     border-radius: 0;
 
-    color: #0077CC;
+    color: #000000;
 
     font-size: 14px;
     font-weight: 700;
@@ -1840,10 +1840,10 @@ button {
     align-items: center;
     justify-content: center;
 
-    border: none;
+    border: 2px white;
     border-radius: 50%;
 
-    background: #0077CC;
+    background: #000000;
     color: #FFFFFF;
 
     font-size: 15px;
