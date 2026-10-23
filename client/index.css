@@ -332,7 +332,7 @@ button {
 /* Navigation hover */
 
 .navbar-menu a:not(.navbar-cart):hover {
-    color: #ffffff;
+    color: #000000;
 }
 
 .navbar-menu a:not(.navbar-cart):hover::after {
