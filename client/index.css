@@ -321,7 +321,7 @@ button {
     width: 0;
     height: 3px;
 
-    background: #000000;
+    background: white;
 
     border-radius: 3px;
 
@@ -332,7 +332,7 @@ button {
 /* Navigation hover */
 
 .navbar-menu a:not(.navbar-cart):hover {
-    color: #000000;
+    color: white;
 }
 
 .navbar-menu a:not(.navbar-cart):hover::after {
@@ -389,8 +389,8 @@ button {
 /* Cart hover */
 
 .navbar-cart:hover {
-    background: #f47721;
-    border-color: #f47721;
+    background: #0077cc;
+    border-color: white;
 
     transform: translateY(-2px);
 }
@@ -416,7 +416,7 @@ button {
 
     padding: 0 5px;
 
-    background: #f47721;
+    background: #0077cc;
     color: #ffffff;
 
     border-radius: 50%;
