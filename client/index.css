@@ -456,8 +456,8 @@ button {
 /* Mobile button hover */
 
 .mobile-menu-button:hover {
-    background: #f47721;
-    border-color: #f47721;
+    background: #0077cc;
+    border-color: #0077cc;
 }
 
 
@@ -700,8 +700,8 @@ button {
 
     padding: 11px 22px;
 
-    background: #0077CC;
-    color: #FFFFFF;
+    background: white;
+    color: black;
 
     border-radius: 6px;
 
@@ -714,7 +714,7 @@ button {
 }
 
 .hero-button:hover {
-    background: blue;
+    background: #F5F5F5;
 
     transform: translateY(-2px);
 }
