@@ -975,10 +975,10 @@ button {
     align-items: center;
     justify-content: center;
 
-    background: #000000;
-    color: #FFFFFF;
+    background: #ffffff;
+    color: #000000;
 
-    border: 2px solid #FFFFFF;
+    border: 2px solid #000000;
     border-radius: 50%;
 
     font-size: 14px;
