@@ -5593,7 +5593,7 @@ body {
 .new-arrivals-arrow {
     width: 34px;
     height: 34px;
-    border: 2px solid #FFFFFF;
+    border: 2px solid #000000;
 }
 
 .new-arrivals-prev { left: 4px; }
