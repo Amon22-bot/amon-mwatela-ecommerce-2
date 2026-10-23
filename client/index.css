@@ -4120,7 +4120,7 @@ button {
     background: transparent;
     border: none;
 
-    color: #0077CC;
+    color: #000000;
 
     font-size: 14px;
     font-weight: 700;
@@ -4138,7 +4138,7 @@ button {
 }
 
 .recommended-view-all:hover {
-    color: #F47721;
+    color: #0c0908;
 }
 
 .recommended-view-all:hover i {
@@ -4513,7 +4513,7 @@ button {
     align-items: center;
     justify-content: center;
 
-    color: #0077CC;
+    color: #ffffff;
 
     font-size: 25px;
 }
@@ -5090,7 +5090,7 @@ button {
 
 .global-search-heading-text h2 {
     margin: 5px 0;
-    color: #005fa3;
+    color: #000000;
     font-size: 28px;
     font-weight: 800;
 }
@@ -5594,7 +5594,7 @@ body {
     width: 34px;
     height: 34px;
     border: 1px solid #000000;
-    background: white;
+    background: black;
 }
 
 .new-arrivals-prev { left: 4px; }
