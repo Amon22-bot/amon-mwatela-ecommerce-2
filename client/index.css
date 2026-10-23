@@ -1840,7 +1840,7 @@ button {
     align-items: center;
     justify-content: center;
 
-    border: 2px #000000;
+    border: 1px #000000;
     border-radius: 50%;
 
     background: #ffffff;
@@ -1863,7 +1863,7 @@ button {
 .carousel-arrow:hover,
 .carousel-button:hover {
 
-    background: #005FA3;
+    background: #ffffff;
 
     transform: translateY(-50%) scale(1.05);
 }
@@ -2158,7 +2158,7 @@ button {
 
 .new-arrivals-shop-btn:hover {
     background: transparent;
-    color: #F47721;
+    color: #0c0908;
 }
 
 .new-arrivals-shop-btn:hover i {
@@ -2672,7 +2672,7 @@ button {
 }
 
 .screen-protectors-shop-btn:hover {
-    color: #F47721;
+    color: #0c0908;
 }
 
 .screen-protectors-shop-btn:hover i {
@@ -3015,7 +3015,7 @@ button {
     padding: 8px 0;
 
     background: transparent;
-    color: #0077CC;
+    color: #000000;
 
     border: none;
     border-radius: 0;
@@ -3039,7 +3039,7 @@ button {
 
 .headphones-shop-btn:hover {
     background: transparent;
-    color: #F47721;
+    color: #0c0908;
 }
 
 .headphones-shop-btn:hover i {
@@ -3414,7 +3414,7 @@ button {
     padding: 8px 0;
 
     background: transparent;
-    color: #0077CC;
+    color: #000000;
 
     border: none;
     border-radius: 0;
@@ -3439,7 +3439,7 @@ button {
 
 .smartwatches-shop-btn:hover {
     background: transparent;
-    color: #F47721;
+    color: #0c0908;
 }
 
 .smartwatches-shop-btn:hover i {
@@ -3844,7 +3844,7 @@ button {
     background: transparent;
     border: none;
 
-    color: #0077CC;
+    color: #000000;
 
     font-size: 14px;
     font-weight: 700;
@@ -3864,7 +3864,7 @@ button {
 
 /* View All hover effect */
 .chargers-cables-view-all:hover {
-    color: #F47721;
+    color: #0c0908;
 }
 
 .chargers-cables-view-all:hover i {
