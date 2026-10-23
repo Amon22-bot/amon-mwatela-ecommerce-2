@@ -1840,7 +1840,7 @@ button {
     align-items: center;
     justify-content: center;
 
-    border: 2px black;
+    border: 2px #000000;
     border-radius: 50%;
 
     background: #ffffff;
