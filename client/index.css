@@ -922,7 +922,7 @@ button {
     width: 100%;
     padding: 13px 34px;
 
-    background: #f47721;
+    background: #ffbf00;
     border-radius: 15px;
 
     overflow: hidden;
@@ -975,7 +975,7 @@ button {
     align-items: center;
     justify-content: center;
 
-    background: #0077CC;
+    background: #000000;
     color: #FFFFFF;
 
     border: 2px solid #FFFFFF;
