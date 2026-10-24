@@ -898,7 +898,7 @@ button {
     border-radius: 6px;
 
     background: none;
-    color: #232323;
+    color: #000000;
 
     font-size: 14px;
     font-weight: 700;
@@ -978,7 +978,7 @@ button {
     background: #ffffff;
     color: #000000;
 
-    border: 2px solid #000000;
+    border: 1px solid #000000;
     border-radius: 50%;
 
     font-size: 14px;
@@ -1003,7 +1003,7 @@ button {
 }
 
 .top-selling-arrow:hover {
-    background: #f47721;
+    background: #ffffff;
     transform: translateY(-50%) scale(1.08);
 }
 
@@ -1423,7 +1423,7 @@ button {
 
 .phone-covers-view-all:hover {
 
-    color: #005FA3;
+    color: #0c0908;
 
     gap: 11px;
 }
