@@ -5427,7 +5427,7 @@ button {
 
 /* Match the checkout page background and remove outlines from homepage cards. */
 body {
-    background: white;
+    background: fffafa;
 }
 
 .top-selling-card,
