@@ -2339,13 +2339,7 @@ button {
     line-height: 1.35;
 }
 
-.new-arrival-details p {
-   display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
+
 /* =========================================================
    DISCOUNT BADGE
    ========================================================= */
@@ -2573,6 +2567,14 @@ button {
         min-height: 32px;
     }
 
+   .new-arrival-details p {
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      text-overflow: ellipsis;
+   }   
+   
     .new-arrival-details strong,
     .new-arrival-price strong {
         font-size: 15px;
