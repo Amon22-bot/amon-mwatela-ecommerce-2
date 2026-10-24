@@ -2565,15 +2565,12 @@ button {
     .new-arrival-details p {
         font-size: 12px;
         min-height: 32px;
+       display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
     }
-
-   .new-arrival-details p {
-      display: -webkit-box;
-      -webkit-line-clamp: 2;
-      -webkit-box-orient: vertical;
-      overflow: hidden;
-      text-overflow: ellipsis;
-   }   
    
     .new-arrival-details strong,
     .new-arrival-price strong {
