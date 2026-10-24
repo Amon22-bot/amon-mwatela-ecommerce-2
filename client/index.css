@@ -1117,13 +1117,15 @@ button {
     line-height: 1.35;
 
     margin: 0 0 3px;
-   
-     display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-     overflow: hidden;
-     text-overflow: ellipsis;
 
+}
+
+.top-selling-details p {
+   display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 /* PRESERVE HIDDEN BEST SELLER BADGES */
