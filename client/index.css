@@ -2025,7 +2025,8 @@ button {
 
         width: 28px;
         height: 28px;
-
+        background: #ffffff;
+        border: 1px solid #000000;
         font-size: 12px;
     }
 
